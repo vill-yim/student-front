@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.content-app {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.aside-lg {
+  backdrop-filter: blur(7px) brightness(0.66);
+
+  background:#b7a6b4;
+}
+
+.aside-dk {
+  backdrop-filter: blur(7px) brightness(0.66);
+
+  background: #121c37;
+}
+
+.aside {
+  width: 320px;
+  height: 100vh;
+  transition: all 0.3s ease-out;
+  display: block;
+  justify-content: center;
+  overflow: hidden;
+  border-right: 1px solid#4d3a4d;
+}
+.toggle-aside {
+  width: 100%;
+  height: 38px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  backdrop-filter: blur(90px) brightness(0.66);
+  border-bottom: 1px solid #8c65ca;
+}
+.aside .toggle-aside img {
+  width: 40px;
+  height: 100%;
+  transition: all 0.3s ease-out;
+  animation: show-aside linear 0.3s;
+}
+.hide-aside .toggle-aside img {
+  transition: all 0.3s ease-out;
+  margin-left: 10px;
+  animation: hide-aside linear 0.3s;
+}
+
+.hide-aside {
+  width: 60px;
+  height: 100vh;
+  transition: all 0.3s ease-out;
+  display: block;
+  border-right: 1px solid #4d3a4d;
+  justify-content: space-between;
+}
+
+@keyframes hide-aside {
+  from {
+    margin-left: 150px;
+    opacity: 0;
+  }
+  to {
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes show-aside {
+  from {
+    opacity: 0;
+    margin-left: 60px;
+  }
+  to {
+    margin-left: -10px;
+    opacity: 1;
+  }
+}
+.show-profile {
+  animation: sh-prof 0.3s linear;
+}
+.hide-profile {
+  animation: hd-prof 0.3s linear;
+}
+
+.profile-aside {
+  width:100%;
+  max-width: 320px;
+  margin-top: 30px;
+  display:block;
+  justify-content:space-around;
+  height: 210px;
+  transition: all 0.3s ease;
+}
+.profile-aside span {
+  width: 250px;
+  height: 80px;
+}
+
+.img-profile {
+  width: 120px;
+  height: 120px;
+  margin:0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.profile-aside h3 {
+  width: 100%;
+  margin:0 auto;
+  margin-top: 10px;
+  max-width: 170px;
+  transition: all;
+  text-align: center;
+  padding:0 1rem;
+  font-weight: 400;
+  word-break: normal;
+  font-family: montserrat;
+  font-size: clamp(1.3rem, 1.5rem, 2rem);
+}
+
+@keyframes sh-prof {
+  from {
+    transform: translateX(10px);
+    opacity: 1;
+  }
+
+  to {
+    margin-left: 100px;
+    opacity: 0;
+    backdrop-filter: blur(90px) brightness(0.66);
+  }
+}
+
+@keyframes hd-prof {
+  from {
+    margin-left: 100px;
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(-10px);
+    opacity: 1;
+  }
+}
+
+.list-aside {
+  width: 250px;
+  height: 600px;
+  gap: 10%;
+}
+
+.list-aside ul {
+  width: 250px;
+  height: 450px;
+  gap: 20%;
+  display: block;
+}
+.links {
+  width: 250px;
+  height: 40px;
+  display: flex;
+  gap: 8%;
+  margin: 20px 5px;
+  justify-content: start;
+  padding: 1rem 0;
+  font-weight: 400;
+  font-family: poppins;
+  transition: all 0.3s ease-out;
+  font-size: clamp(1rem, 1.1rem, 1.2rem);
+  text-decoration: none;
+  align-items: center;
+}
+
+.links:hover {
+  backdrop-filter: blur(90px) brightness(0.66);
+  color: #f9f871;
+}
+
+.links:hover img {
+  transition: all 0.5s ease-out;
+
+  transform: translateY(-10px);
+}
+
+.links.active {
+  backdrop-filter: blur(90px) brightness(0.66);
+  color: #f9f871;
+}
+
+.links.active img {
+  transition: all 0.5s ease-out;
+  transform: translateY(-10px);
+}
+
+.li-dk {
+  color:#fff6ff;
+}
+
+.li-lg {
+  color: #373631;
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  max-width: 1800px;
+  transition: all 0.3s ease-out;
+  justify-content: center;
+}
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+.header {
+  width: 100%;
+  height: 120px;
+  display: block;
+  box-shadow: 1px 1px -4px #000300;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.pages {
+  width: 100%;
+  height: 100%;
+  overflow-y:auto ;
+  justify-content: center;
+}
+
+
+.pages::-webkit-scrollbar{
+  display: none;
+}
+@media (max-width: 600px) {
+  .aside {
+    max-width: 170px;
+  }
+
+  .list-aside{
+
+  padding-top: 50px;
+  }
+.links{
+  margin:35px 0;
+}  
+ 
+}

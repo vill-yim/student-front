@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.content-header {
+  width: 100%;
+  max-width: 1800px;
+  height: 70px;
+  display: flex;
+  margin: 0 auto;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-around;
+  backdrop-filter: blur(7px) brightness(0.86);
+}
+
+.header-logined {
+  width: 100%;
+  max-width: 1800px;
+  height: 70px;
+  display: flex;
+  margin: 0 auto;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.date {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  max-width: 140px;
+  max-height: 60px;
+  justify-content: center;
+}
+
+.calendar-header {
+  width: 100%;
+  max-width: 150px;
+  display: flex;
+  gap: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-header img {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.calendar-header img:hover {
+  background: #7a163c50;
+  border-radius: 100%;
+}
+
+.calendar-header p {
+  font-size: clamp(0.9rem, 0.99rem, 1rem);
+  color: #d2a517;
+  font-weight: 600;
+}
+
+.img-inicio {
+  width: 40px;
+  height: 40px;
+  padding-left: 0.5rem;
+  justify-content: center;
+  animation: inicio 0.5s linear;
+}
+.img-inicio img {
+  margin: 0 auto;
+}
+
+@keyframes inicio {
+  from {
+    opacity: 0;
+    margin-top: -10px;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.menu-nav-select {
+  width: 100%;
+  height: 25px;
+  display: flex;
+  padding: 1rem 0.5rem;
+  max-width: 350px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid #1b2b4c;
+  backdrop-filter: blur(90px) brightness(0.66);
+}
+
+.menu-nav-select label {
+  width: 100%;
+  max-width: 35px;
+  border-right: 1px solid #1b2b4c;
+  margin: 0 10px;
+  padding-right: 1rem;
+}
+
+.menu-nav input {
+  width: 100%;
+  max-width: 350px;
+  outline: none;
+  text-align: center;
+  padding: 0.3rem;
+  align-items: center;
+  border-radius: 18px;
+  font-family: poppins;
+  color: #d2a517;
+  background: none;
+  border: none;
+}
+
+.notifications {
+  width: 100%;
+  max-width: 90px;
+  gap: 10%;
+  justify-content: center;
+  height: 25px;
+  display: flex;
+  border-radius: 12px;
+  background: #f2fedc;
+  cursor: pointer;
+}
+.notifications img:hover {
+  transition: all 0.3s ease-out;
+  border-radius: 100%;
+  backdrop-filter: blur(7px) brightness(0.36);
+}
+
+.title-logo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  max-width: 200px;
+}
+
+.loginup {
+  width: 100%;
+  max-width: 120px;
+  height: 45px;
+  align-items: center;
+  gap: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.img-profile {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.register-login {
+  width: 100%;
+  max-width: 180px;
+  display: block;
+  justify-content: center;
+}
+
+.menu-logout {
+  width: 200px;
+  height: 280px;
+  position: relative;
+  opacity: 1;
+  z-index: 100;
+  background: #1b2b4c;
+}
+
+.menu-logout ul {
+  width: 100%;
+  margin-top: 20px;
+  position: absolute;
+  height: 100%;
+  display: block;
+  gap: 1rem;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.menu-logout ul li {
+  width: 100%;
+  cursor: pointer;
+  color: #dfc9ff;
+  margin-bottom: 1.7rem;
+  transition: all 0.3s ease-out;
+  border-bottom: 1px solid #7a163c;
+  list-style: none;
+}
+
+.menu-logout ul li:hover {
+  border-bottom: 1px solid #b34e2c;
+  color: #d5672f;
+  transform: translateY(-5px);
+}
+
+.count {
+  width: 100%;
+  max-width: 150px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.tooltip-container {
+  width: 100%;
+  height: 100%;
+  max-width: 140px;
+  margin: 0 auto;
+  position: relative;
+  display: inline-block;
+  font-family: "Arial", sans-serif;
+  overflow: visible;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.3s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.button-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(110, 142, 251, 0.4),
+    rgba(167, 119, 227, 0.4)
+  );
+  filter: blur(15px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.button-content::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: scale(0);
+  transition: transform 0.6s ease-out;
+  z-index: -1;
+}
+
+.button-content:hover::before {
+  opacity: 1;
+}
+
+.button-content:hover::after {
+  transform: scale(1);
+}
+
+.button-content:hover {
+  background: linear-gradient(135deg, #a777e3, #6e8efb);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.button-content:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 12px;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: letter-spacing 0.3s ease;
+}
+
+.button-content:hover .text {
+  letter-spacing: 1px;
+}
+
+.share-icon {
+  fill: white;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    fill 0.3s ease;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.button-content:hover .share-icon {
+  transform: rotate(180deg) scale(1.1);
+  fill: #ffffff;
+}
+
+/* Animation for Pulse Effect */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(110, 142, 251, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(110, 142, 251, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(110, 142, 251, 0);
+  }
+}
+
+.button-content {
+  animation: pulse 3s infinite;
+}
+
+/* Hover Ripple Effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

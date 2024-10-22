@@ -8,8 +8,9 @@
   flex-wrap: wrap;
   margin: 0 auto;
   position: relative;
-  justify-content: space-around;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  justify-content: space-between;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .coverContainer {
@@ -67,7 +68,8 @@
 .ctaButton:hover {
   background-color: var(--cta-hover-bg-color, #2563eb);
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .ctaButton:focus {
@@ -83,7 +85,7 @@
   .coverContainer {
     padding: 2rem 1.5rem;
   }
-  
+
   .ctaButton {
     width: 100%;
   }
@@ -99,11 +101,11 @@
   width: 100%;
   height: 380px;
   margin-top: 90px;
-  border-radius:0  12px 12px 0;
+  border-radius: 0 12px 12px 0;
   overflow-y: auto;
 }
 
-.graph-cover::-webkit-scrollbar {
+.graph-cover::-webkit-scloginbar {
   display: none;
 }
 
@@ -114,7 +116,6 @@
     margin: 0 auto;
   }
 }
-
 
 /*
 

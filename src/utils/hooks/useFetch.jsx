@@ -1,5 +1,4 @@
-import { jwtVerify } from "jose";
-
+import { jwtDecode } from "jwt-decode";
 const VerifiedRole = (role) => {
   return role === role; // Esta comparación siempre devolverá true
 };
@@ -16,19 +15,15 @@ export const useFetch = async (state, url, method) => {
       method: method,
       body: formData,
     });
-
-    const token = await req.json();
-    const tokenUser = Object.values(token).toString();
-
-    // Clave secreta utilizada para verificar el token
-    const secretKey = new TextEncoder().encode("tu_clave_secreta");
-
-    // Verificar y decodificar el token usando jose
-    const { payload } = await jwtVerify(tokenUser, secretKey);
-
-    return payload; // Retorna el payload decodificado
+    const res = await req.json();
+    if (res.status !== 202) {
+      alert(res.error);
+    }else{
+      const payload = jwtDecode(res.token);
+    return payload.token;
+    }
   } catch (error) {
-    alert(`error: ${error}`);
+    alert(`Upps!! Ocurrió un error, ${error}`);
   }
 
   // const verifiedRole = VerifiedRole(role);

@@ -1,15 +1,26 @@
 import style from "./App.module.css";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Header } from "./components/header/Header";
 import { useLocation } from "react-router-dom";
 import { SubHeader } from "./components/header/SubHeader";
 import { preferenceStore } from "./utils/storage/preferences/preferenceStore";
-import { userStorage } from "./utils/storage/login/loginStorage";
+import { useUserStorage } from "./utils/storage/login/useUserStorage";
+import { useEffect } from "react";
 
 export const Layout = ({ children }) => {
   const { setAside, aside, theme } = preferenceStore();
-  const { roll } = userStorage();
+  const { login, res } = useUserStorage();
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (document.getElementById("pages") > 200) {
+        console.log("scroll");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const RenderLi = ({ route, src, alt, name }) => {
     return (
@@ -31,7 +42,7 @@ export const Layout = ({ children }) => {
 
   return (
     <div className={style["content-app"]}>
-      {roll && (
+      {login && (
         <div
           className={`${style[theme ? "aside-dk" : "aside-lg"]} ${
             style["aside"]
@@ -63,15 +74,13 @@ export const Layout = ({ children }) => {
               <>
                 <div
                   style={{
-                    backgroundImage:
-                      'url("https://img.icons8.com/officel/120/test-account.png")',
+                    backgroundImage: `url('${res?.profile_img}')`,
                   }}
                   className={style["img-profile"]}
                 />
-
                 <span>
                   <h3 className={style[theme ? "li-dk" : "li-lg"]}>
-                    ¡Bienvenido, <br /> Usuario!
+                  ¡ Hola, {res?.name} <br />{res?.lastname} !
                   </h3>
                 </span>
               </>
@@ -87,31 +96,31 @@ export const Layout = ({ children }) => {
             <ul>
               <RenderLi
                 route={"/"}
-                src={"https://img.icons8.com/pulsar-color/45/home.png"}
+                src={"https://img.icons8.com/pulsar-color/35/home.png"}
                 alt={"inicio"}
                 name={"inicio"}
               />
               <RenderLi
                 route={"/ubicacion"}
-                src={"https://img.icons8.com/fluency/45/location--v1.png"}
+                src={"https://img.icons8.com/fluency/35/location--v1.png"}
                 alt={"ubicacion"}
                 name={"Ubicación"}
               />
               <RenderLi
                 route={"/calendario"}
-                src={"https://img.icons8.com/color-glass/45/overtime--v1.png"}
+                src={"https://img.icons8.com/color-glass/35/overtime--v1.png"}
                 alt={"calendario"}
                 name={"Calendario"}
               />
               <RenderLi
                 route={"/informes"}
-                src={"https://img.icons8.com/fluency/45/graph-report.png"}
+                src={"https://img.icons8.com/fluency/35/graph-report.png"}
                 alt={"informes"}
                 name={"Informes"}
               />
               <RenderLi
                 route={"/chats"}
-                src={"https://img.icons8.com/color/48/chat--v1.png"}
+                src={"https://img.icons8.com/color/35/chat--v1.png"}
                 alt={"chats"}
                 name={"Chats"}
               />
@@ -119,17 +128,22 @@ export const Layout = ({ children }) => {
           </div>
         </div>
       )}
-    
 
       <div
-        style={{ background: `${theme ? "#303755" : "#fff6ff"}` }}
+        style={{ background: `${theme ? "#302e34" : "#d6e9ee"}` }}
         className={style["content"]}
       >
-        <div className={style["header"]}>
+        <div
+          style={{ position: aside ? "sticky" : "" }}
+          className={style["header"]}
+        >
           <SubHeader />
           <Header />
         </div>
-        <div className={style["pages"]}> {children} </div>
+        <div className={style["pages"]} id="pages">
+          {" "}
+          {children}{" "}
+        </div>
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styleHeader from "../../styles/header/header.module.css";
-import { userStorage } from "../../utils/storage/login/loginStorage";
+import { useUserStorage } from "../../utils/storage/login/useUserStorage";
 import { useLocation } from "react-router-dom";
 import { preferenceStore } from "../../utils/storage/preferences/preferenceStore";
 
 export const Header = () => {
-  const data = userStorage();
+  const data = useUserStorage();
   const { aside } = preferenceStore();
   const [date, setDate] = useState({ day: 0, month: 0, year: 0 });
   const [profileNav, setProfileNav] = useState(false);
@@ -33,7 +33,9 @@ export const Header = () => {
       setHome(true);
     }
 
-    return () => clearInterval(intervalId);
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [location.pathname]);
 
   const RenderInputHeader = () => {
@@ -54,18 +56,18 @@ export const Header = () => {
 
   const logOut = () => {
     data?.setLogout(setProfileNav);
-    userStorage.persist.clearStorage();
-    <Navigate to={"/"} />;
+    useUserStorage.persist.clearStorage();
+    window.location.href = "/";
   };
 
   return (
     <div
       className={`${
-        styleHeader[data?.roll ? "header-logined" : "content-header"]
+        styleHeader[data?.login ? "header-logined" : "content-header"]
       }`}
     >
       <div className={styleHeader["date"]}>
-        {data?.roll ? (
+        {data?.login ? (
           <div className={styleHeader["calendar-header"]}>
             <img
               src="https://img.icons8.com/fluency/28/calendar--v1.png"
@@ -82,7 +84,7 @@ export const Header = () => {
         )}
       </div>
 
-      {data?.roll ? (
+      {data?.login ? (
         <div className={styleHeader["menu-nav"]}>
           <RenderInputHeader />
         </div>
@@ -101,7 +103,7 @@ export const Header = () => {
       )}
 
       <div className={styleHeader["register-login"]}>
-        {data?.roll ? (
+        {data?.login ? (
           <div className={styleHeader["loginup"]}>
             <div className={styleHeader["notifications"]}>
               <img
@@ -118,11 +120,11 @@ export const Header = () => {
               onClick={viewOptionProfile}
               className={styleHeader["img-profile"]}
               style={{
-                backgroundImage: `url(${"https://img.icons8.com/ios/30/gender-neutral-user--v1.png"})`,
+                backgroundImage: `url('${data?.res?.profile_img}')`,
               }}
             />
 
-            {data?.roll && profileNav && (
+            {data?.login && profileNav && (
               <div className={styleHeader["menu-logout"]}>
                 <ul>
                   <li>Perfil</li>

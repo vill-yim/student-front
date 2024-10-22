@@ -2,60 +2,51 @@
 
 .prefooter {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   backdrop-filter: blur(10px) brightness(0.46);
 }
 
-
-
-
 .l-content {
   width: 100%;
-  height: 100%;
   max-width: 650px;
   overflow: hidden;
-  max-height: 520px;
   border-radius: 12px;
   justify-content: space-around;
   position: relative;
-
 }
 
 .l-content h3 {
   width: 100%;
-  height: 100%;
   max-width: 350px;
   text-align: center;
   justify-content: center;
   margin-top: 30px;
-  max-height: 150px;
   font-weight: 600;
-  color: #FFA500;
+  margin-bottom: 1rem;
+  color: #ffa500;
   font-family: montserrat;
   font-size: clamp(1.8rem, 2rem, 2.5rem);
 }
 
-.l-content p{
+.l-content p {
   width: 100%;
   height: 100%;
   font-weight: 400;
-  padding: .5rem;
+  padding: 0.5rem;
+  padding-top: 1rem;
   font-family: poppins;
-  font-size: clamp(1rem,1.3rem,1.5rem);
+  font-size: clamp(1rem, 1.3rem, 1.5rem);
   color: #f9f871;
 }
-
 
 .r-content {
   width: 100%;
   max-width: 450px;
-  max-height: 420px;
   display: flex;
-  background-image: url('../../../public/cover/bg_2.png');
+  background-image: url("../../../public/cover/bg_2.png");
   background-position: center;
   background-size: cover;
   justify-content: center;
@@ -65,41 +56,31 @@
 
 .img {
   width: 100%;
-  height: 420px;
+  height: 460px;
   background-image: url("../../../public/cover/prefooter.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  
 }
 
-.l-content::before{
+.l-content::before {
   position: absolute;
-  content: '';
+  content: "";
   z-index: -1;
   width: 700px;
   height: 600px;
   border-radius: 100%;
-  transform: translateY(-160px) ;
+  transform: translateY(-160px);
   background: rgba(255, 0, 157, 0.199);
 }
 
-.r-content::before{
+.r-content::before {
   position: absolute;
-  content: '';
+  content: "";
   z-index: -1;
   width: 700px;
   height: 600px;
   border-radius: 100%;
   transform: translateY(180px) translateX(-60px);
   background: rgba(255, 0, 157, 0.199);
-}
-
-
-@media (max-width:900px) {
-  
-  .prefooter{
-    margin: 10px 0;
-    height: 100%;
-  }
 }

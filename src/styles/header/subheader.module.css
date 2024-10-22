@@ -3,14 +3,14 @@
 .sub-header {
   width: 100%;
   height: 38px;
-  backdrop-filter: blur(10px) brightness(0.22);
+  backdrop-filter: blur(15px) brightness(0.62);
   overflow: hidden;
   display: flex;
   flex-grow: initial;
-  justify-content:space-around;
+  justify-content:space-between;
   top: 0;
+  align-items: center;
   margin: 0 auto;
-  box-shadow: 1px 1px 4px #000300;
   transition: all 0.3s ease-out;
 }
 
@@ -23,7 +23,7 @@
 
 .tittle-subheader h2 {
   width: 100%;
-  height: 30px;
+  height: 35px;
   font-size: clamp(1rem, 1.3rem, 1.5rem);
   padding-left: 0.5rem;
   color: #d2a517;
@@ -33,13 +33,7 @@
   margin-left: 1rem;
 }
 
-.content-red {
-  width: 200px;
-  height: 35px;
-  display: flex;
-  position: absolute;
-  justify-content: center;
-}
+
 
 .change-theme {
   width: 60px;

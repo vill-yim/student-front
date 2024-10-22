@@ -1,20 +1,22 @@
 import { useState } from "react";
 import styleForm from "../../styles/login/login.module.css";
-import { userStorage } from "../../utils/storage/login/loginStorage";
+import { useUserStorage } from "../../utils/storage/login/useUserStorage";
 
 export const Form = () => {
-  const { setLogin, setCretaeUser } = userStorage();
+  const { setLogin, setCreateUser } = useUserStorage();
 
   const [isSignUp, setIsSignUp] = useState(true);
-  const [createUser, setCreateUser] = useState({
+  const [createUser, setCreate] = useState({
     name: "",
-    legal_identify: "",
+    lastname: "",
     email: "",
+    type_identify: "",
+    number_identify: "",
     password: "",
     profile_img: "",
   });
-  const [loginUser] = useState({
-    legal_identify: "",
+  const [loginUser, setLoginUser] = useState({
+    number_identify: "",
     password: "",
   });
 
@@ -25,24 +27,27 @@ export const Form = () => {
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "profile_img" && files.length > 0) {
-      setCreateUser((e) => ({ ...e, profile_img: files[0] }));
+      setCreate((e) => ({ ...e, profile_img: files[0] }));
     } else {
-      setCreateUser((e) => ({ ...e, [name]: value }));
+      setCreate((e) => ({ ...e, [name]: value }));
     }
   };
 
   const handleChangeLogin = (e) => {
     const { name, value } = e.target;
-    setLogin((e) => ({ ...e, [name]: value }));
+    setLoginUser((e) => ({ ...e, [name]: value }));
   };
 
-  const handleCreateUser = () => {
-    setCretaeUser(createUser);
-  };
-
-  const handleLogin = (e) => {
+  const handleCreateUser = async (e) => {
     e.preventDefault();
-    setLogin(loginUser);
+   await setCreateUser(createUser);
+    window.location.href = "/";
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await setLogin(loginUser);
+    window.location.href = "/";
   };
   return (
     <div className={styleForm["container-form"]}>
@@ -68,15 +73,15 @@ export const Form = () => {
             <form className={styleForm["form"]}>
               <label>
                 <input
-                  name={"legal_identify"}
-                  value={loginUser.legal_identify}
+                  name={"number_identify"}
+                  value={loginUser.number_identify}
                   className={styleForm["input"]}
                   type="text"
                   onChange={handleChangeLogin}
                   placeholder=""
                   required
                 />
-                <span>Documento de Identidad</span>
+                <span>Número de documento</span>
               </label>
 
               <label>
@@ -118,23 +123,47 @@ export const Form = () => {
                     placeholder=""
                     required
                   />
-                  <span>Nombre de Usuario</span>
+                  <span>Nombres</span>
                 </label>
 
                 <label>
                   <input
-                    name={"legal_identify"}
-                    value={createUser.legal_identify}
+                    name={"lastname"}
+                    value={createUser.lastname}
                     onChange={handleChange}
                     className={styleForm["input"]}
                     type="text"
                     placeholder=""
                     required
                   />
-                  <span>Documento de Identidad</span>
+                  <span>Apellidos</span>
                 </label>
               </div>
+              <label>
+                <input
+                  name={"type_identify"}
+                  value={createUser.type_identify}
+                  onChange={handleChange}
+                  className={styleForm["input"]}
+                  type="text"
+                  placeholder=""
+                  required
+                />
+                <span>Tipo de documento</span>
+              </label>
 
+              <label>
+                <input
+                  name={"number_identify"}
+                  value={createUser.number_identify}
+                  onChange={handleChange}
+                  className={styleForm["input"]}
+                  type="text"
+                  placeholder=""
+                  required
+                />
+                <span>Número de documento</span>
+              </label>
               <label>
                 <input
                   name={"email"}
@@ -159,18 +188,6 @@ export const Form = () => {
                   required
                 />
                 <span>Contraseña</span>
-              </label>
-
-              <label>
-                <input
-                  name={"confirm_password"}
-                  onChange={handleChange}
-                  className={styleForm["input"]}
-                  type="password"
-                  placeholder=""
-                  required
-                />
-                <span>Confirmar contraseña</span>
               </label>
 
               <label htmlFor="file" className={styleForm["custum-file-upload"]}>

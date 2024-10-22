@@ -1,0 +1,48 @@
+.content-main-category {
+  width: 100%;
+  max-width: 1800px;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.category-instituto {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.component-category {
+  width: 100%;
+  max-width: 620px;
+  height: 380px;
+}
+.component-category h3 {
+  font-size: clamp(1.5rem, 2rem, 2.5rem);
+  margin-left: 1rem;
+}
+
+.category-video {
+  width: 100%;
+  height: 290px;
+  overflow-x: auto;
+  display: flex;
+  cursor: grab;
+}
+
+.category-video::-webkit-scloginbar {
+  display: none;
+}
+.video {
+  width: 280px;
+  height: 280px;
+  margin: 5px;
+  backdrop-filter: blur(5px) brightness(0.66);
+}
+
+.video-player {
+  width: 250px;
+  height: 250px;
+  border-radius: 22px;
+}

@@ -51,10 +51,3 @@ export const SubHeader = () => {
   );
 };
 
-/*.color1 {color: #00000e;}
-.color2 {color: #1b2b4c;}
-.color3 {color: #4c5a98;}
-.color4 {color: #8d8fee;}
-.color5 {color: #dfc9ff;} 
-
-*/

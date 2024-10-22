@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Chart, registerables } from "chart.js";
-import { preferenceStore } from "../../utils/storage/preferences/preferenceStore";
-import styles from "../../styles/user/cover.module.css";
+import Calendar from "react-calendar";
+import { preferenceStore } from "../../../utils/storage/preferences/preferenceStore";
+import styles from "../../../styles/user/cover.module.css";
 
 Chart.register(...registerables);
 const Graph = ({ onBarClick }) => {
@@ -81,7 +82,6 @@ const Graph = ({ onBarClick }) => {
           );
           if (activePoints.length) {
             const clickedIndex = activePoints[0].index;
-            console.log(activePoints)
             onBarClick(clickedIndex);
           }
         },
@@ -106,15 +106,43 @@ const Graph = ({ onBarClick }) => {
   return (
     <canvas
       ref={canvasRef}
-      style={{ height: "480px", width: "100%", cursor: "pointer" }}
+      style={{
+        height: "480px",
+        width: "100%",
+        maxWidth: "790px",
+        cursor: "pointer",
+      }}
     />
   );
 };
 
+
+const CalendarComponent = () => {
+  const [date, setDate] = useState(new Date());
+
+  const onChange = (newDate) => {
+    setDate(newDate);
+    console.log("Día seleccionado es", newDate);
+  };
+
+  return (
+    <div className={styles["calendar-container"]}>
+        <p>Fecha seleccionada: {date.getDate()}</p>
+      <Calendar onChange={onChange} value={date} className="custom-calendar" />
+      <div className={styles["selected-date"]}>
+      </div>
+    </div>
+  );
+};
+
+
+
 export const Cover = () => {
-  const { theme } = preferenceStore();
+  const { theme, aside } = preferenceStore();
   const [description, setDescription] = useState("");
   const [advice, setAdvice] = useState("");
+
+
 
   const handleBarClick = (index) => {
     const ratings = [12, 19, 3, 5, 2, 3];
@@ -134,7 +162,7 @@ export const Cover = () => {
     <div className={styles["content-cover"]}>
       <div className={styles["l-cover"]}>
         <div className={styles["title-graph"]}>
-          <h5 style={{ color: theme ? "#fff6ff" : "#303755" }}>
+          <h5 style={{ color: theme ? "#fff6ff" : "#d5672f" }}>
             Todas las áreas
           </h5>
         </div>
@@ -178,26 +206,30 @@ export const Cover = () => {
         </div>
       </div>
 
-      <div className={styles["r-cover"]}>
-        <div className={styles["daily-phrase"]}>
+      <div
+        className={styles["r-cover"]}
+        style={{
+          display: window.innerWidth > 800 && aside ? "block" : "flex",
+          width: window.innerWidth > 800 && !aside && "100%",
+          maxWidth: window.innerWidth > 800 && !aside && "900px",
+        }}
+      >
+        <div
+          style={{ maxWidth: window.innerWidth > 800 && !aside && "400px" }}
+          className={styles["daily-phrase"]}
+        >
           <h4>¡Frase del día!</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta
-            porro minus culpa odit amet nemo eveniet repudiandae ipsa enim
-            sapiente! Blanditiis magnam ex quisquam libero ab dolore, error
-            perferendis! Veritatis!
+            El éxito no es la clave de la felicidad. La felicidad es la clave
+            del éxito. Si amas lo que haces, alcanzarás el éxito.
           </p>
         </div>
-        <div className={styles["challenge"]}>
-          <h4>¡Desafio diario!</h4>
 
-                <img src="../../../public/cover/cover.png" alt="" />
+        <div className={styles["challenge-div"]}>
 
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta
-            porro minus culpa odit amet nemo eveniet repudiandae ipsa enim
-            sapiente!
-          </p>
+          <div className={styles["challenges-content"]}>
+            <CalendarComponent/>
+          </div>
         </div>
       </div>
     </div>

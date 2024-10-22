@@ -12,7 +12,6 @@
   from{
     opacity: 0;
     margin-left: -50%;
-  backdrop-filter: blur(7px) brightness(0.16);
     
   }
 
@@ -27,8 +26,10 @@
 .container-form {
   width: 100%;
   height: 100%;
-  justify-content: center;
+  justify-content: space-between;
   max-width: 800px;
+    gap: 1rem;
+
   margin: 0 auto;
 }
 
@@ -38,26 +39,29 @@
   height: 100%;
   max-width: 1200px;
   display: flex;
+  backdrop-filter:blur(30px) brightness(0.33);
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   border-radius: 20px;
 }
 
-.login.content-form-login {
-  animation: to-right linear 1s;
+.content-form-login {
+  align-items: center;
+  animation: to-right linear .3s;
 }
 
-.logup.content-form-logup {
-  animation: to-left linear .5s;
+.content-form-logup {
+  padding-top: 1rem;
+  justify-content: center;
+  animation: to-left linear .3s;
 }
 .content-form-logup,
 .content-form-login {
   width: 100%;
   display: block;
   max-width: 400px;
-  height: 354px;
+  height: 100%;
   justify-content: center;
-  backdrop-filter: blur(30px) brightness(0.33);
 }
 
 .text-form {
@@ -72,6 +76,7 @@
   font-weight: 700;
   text-align: center;
 }
+
 
 .form {
   display: flex;
@@ -227,27 +232,13 @@
 .content-overlay-logup,
 .content-overlay-login {
   width: 100%;
-  height: 100%;
   max-width: 400px;
-  max-height: 430px;
   display: flex;
-  background: -webkit-linear-gradient(
-    139deg,
-    #9b22ec,
-    #08d9af,
-    #259905
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    139deg,
-    #9b22ec,
-    #08d9af,
-    #259905
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background-image: linear-gradient(to left bottom, #46353f, #5b4659, #6e5977, #7c6f97, #8586b9, #878dcd, #8895e1, #869df6, #8f93fe, #9f86ff, #b475ff, #cb5ffb);
 }
 
 .overlay-logup {
   width: 100%;
-  height: 100%;
   max-width: 380px;
   margin: 0 auto;
   display: block;
@@ -296,6 +287,7 @@
 @keyframes to-right {
   0% {
     opacity: 0;
+    z-index: -1;
     transform: translateX(100%);
   }
   100% {
@@ -306,6 +298,8 @@
 @keyframes to-left {
   0% {
     opacity: 0;
+    z-index: -1;
+
     transform: translateX(-100%);
   }
   100% {
@@ -319,6 +313,7 @@
   }
   .content-overlay-logup {
     order: 2;
+    gap: 1rem;
   }
 
   .content-overlay-login {

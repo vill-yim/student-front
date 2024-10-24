@@ -2,6 +2,9 @@ import {
   VictoryBar,
   VictoryPie,
   VictoryLabel,
+  VictoryAnimation,
+  VictoryAxis,
+  VictoryChart,
   VictorySharedEvents,
 } from "victory";
 
@@ -23,12 +26,12 @@ const RenderCover = () => {
   const Victory = (
     <VictoryBar
       data={[
-        { x: 1, y: 2, label: "A" },
-        { x: 2, y: 4, label: "B" },
-        { x: 3, y: 7, label: "C" },
-        { x: 4, y: 3, label: "D" },
-        { x: 5, y: 5, label: "E" },
-        { x: 6, y: 4, label: "f" },
+        { x: 1, y: 2, label: "Mat" },
+        { x: 2, y: 4, label: "Bio" },
+        { x: 3, y: 7, label: "Cie" },
+        { x: 4, y: 3, label: "Esp" },
+        { x: 5, y: 5, label: "Inf" },
+        { x: 6, y: 4, label: "Ing" },
       ]}
       events={[
         {
@@ -39,7 +42,15 @@ const RenderCover = () => {
                 {
                   target: "labels",
                   mutation: (props) => {
-                    return props.text === "clicked" ? null : console.log(state);
+                    return props.text === "clicked"
+                      ? null
+                      : (() => {
+                          console.log(state);
+                          console.log(state.data);
+                          console.log(props);
+                          const { data } = props;
+                          console.log(data);
+                        })();
                   },
                 },
               ];
@@ -48,6 +59,125 @@ const RenderCover = () => {
         },
       ]}
     />
+  );
+
+  const Victory2 = (
+    <VictoryChart domainPadding={{ x: 40 }}>
+      <VictorySharedEvents
+        events={[
+          {
+            childName: ["bar", "otherbar"],
+            target: "",
+            eventHandlers: {
+              onClick: () => {
+                return [
+                  {
+                    childName: ["bar", "otherbar"],
+                  },
+                ];
+              },
+            },
+          },
+        ]}
+      />
+
+      <VictoryBar
+        data={[
+          { experiment: "Ing", expected: 100, actual: 8 },
+          { experiment: "Mat", expected: 100, actual: 5 },
+          { experiment: "Soc", expected: 100, actual: 7 },
+          { experiment: "Esp", expected: 100, actual: 8 },
+        ]}
+        x="experiment"
+        y={(d) => (d.actual / d.expected) * 100}
+      />
+      <VictoryAxis
+        label="experiment"
+        style={{
+          axisLabel: { padding: 30 },
+        }}
+      />
+      <VictoryAxis
+        dependentAxis
+        label="percent yield"
+        style={{
+          axisLabel: { padding: 40 },
+        }}
+      />
+    </VictoryChart>
+  );
+
+  const Victory3 = (
+    <svg viewBox="0 0 450 350">
+      <VictorySharedEvents
+        events={[
+          {
+            childName: ["pie", "bar"],
+            target: "data",
+            eventHandlers: {
+              onMouseOver: () => {
+                return [
+                  {
+                    childName: ["pie", "bar"],
+                    mutation: (props) => {
+                      return {
+                        style: Object.assign({}, props.style, {
+                          fill: "tomato",
+                        }),
+                      };
+                    },
+                  },
+                ];
+              },
+              onMouseOut: () => {
+                return [
+                  {
+                    childName: ["pie", "bar"],
+                    mutation: () => {
+                      return null;
+                    },
+                  },
+                ];
+              },
+            },
+          },
+        ]}
+      >
+        <g transform={"translate(220, 70)"}>
+          <VictoryBar
+            name="bar"
+            width={300}
+            standalone={false}
+            style={{
+              data: { width: 20 },
+              labels: { fontSize: 25 },
+            }}
+            data={[
+              { x: "Mátematicas", y: 6 },
+              { x: "Inglés", y: 8 },
+              { x: "Español", y: 9 },
+              { x: "Artes", y: 7 },
+            ]}
+            labels={["Mat", "In", "Es", "Art"]}
+            labelComponent={<VictoryLabel y={290} />}
+          />
+        </g>
+        <g transform={"translate(0, -75)"}>
+          <VictoryPie
+            name="pie"
+            width={250}
+            standalone={false}
+            style={{ labels: { fontSize: 15, padding: 20 } }}
+            data={[
+              { x: "Mátematicas", y: 6 },
+              { x: "Inglés", y: 8 },
+              { x: "Español", y: 9 },
+              { x: "Artes", y: 7 },
+            ]}
+          />
+        </g>
+      </VictorySharedEvents>
+    </svg>
   );
 
   return (
@@ -60,9 +190,8 @@ const RenderCover = () => {
         <div className={style["content-targets"]}>
           <div className={style["targets-scroll"]}>
             <RenderBars children={Victory} />
-            <RenderBars children={Victory} />
-            <RenderBars children={Victory} />
-            <RenderBars children={Victory} />
+            <RenderBars children={Victory2} />
+            <RenderBars children={Victory3} />
             <RenderBars children={Victory} />
             <RenderBars children={Victory} />
             <RenderBars children={Victory} />
@@ -73,7 +202,8 @@ const RenderCover = () => {
 
           <div className={style["mesages-tables"]}>
             <p>
-              Tu profesor dice esto: <br /><span>{observation}</span>
+              Tu profesor dice esto: <br />
+              <span>{observation}</span>
             </p>
           </div>
         </div>
@@ -102,109 +232,3 @@ const CoverUser = () => {
 };
 
 export default CoverUser;
-
-/*
-    <svg viewBox="0 0 450 350">
-              <VictorySharedEvents
-                events={[
-                  {
-                    childName: ["pie", "bar"],
-                    target: "data",
-                    eventHandlers: {
-                      onMouseOver: () => {
-                        return [
-                          {
-                            childName: ["pie", "bar"],
-                            mutation: (props) => {
-                              return {
-                                style: Object.assign({}, props.style, {
-                                  fill: "tomato",
-                                }),
-                              };
-                            },
-                          },
-                        ];
-                      },
-                      onMouseOut: () => {
-                        return [
-                          {
-                            childName: ["pie", "bar"],
-                            mutation: () => {
-                              return null;
-                            },
-                          },
-                        ];
-                      },
-                    },
-                  },
-                ]}
-              >
-                <g transform={"translate(220, 70)"}>
-                  <VictoryBar
-                    name="bar"
-                    width={300}
-                    standalone={false}
-                    style={{
-                      data: { width: 20 },
-                      labels: { fontSize: 25 },
-                    }}
-                    data={[
-                      { x: "Mátematicas", y: 6 },
-                      { x: "Inglés", y: 8 },
-                      { x: "Español", y: 9 },
-                      { x: "Artes", y: 7 },
-                    ]}
-                    labels={["Mat", "In", "Es", "Art"]}
-                    labelComponent={<VictoryLabel y={290} />}
-                  />
-                </g>
-                <g transform={"translate(0, -75)"}>
-                  <VictoryPie
-                    name="pie"
-                    width={250}
-                    standalone={false}
-                    style={{ labels: { fontSize: 15, padding: 20 } }}
-                    data={[
-                      { x: "Mátematicas", y: 6 },
-                      { x: "Inglés", y: 8 },
-                      { x: "Español", y: 9 },
-                      { x: "Artes", y: 7 },
-                    ]}
-                  />
-                </g>
-              </VictorySharedEvents>
-            </svg>
-*/
-
-/*
- <RenderBar>
-            <VictoryBar
-              data={[
-                { x: 1, y: 2, label: "A" },
-                { x: 2, y: 4, label: "B" },
-                { x: 3, y: 7, label: "C" },
-                { x: 4, y: 3, label: "D" },
-                { x: 5, y: 5, label: "E" },
-              ]}
-              events={[
-                {
-                  target: "data",
-                  eventHandlers: {
-                    onClick: () => {
-                      return [
-                        {
-                          target: "labels",
-                          mutation: (props) => {
-                            return props.text === "clicked"
-                              ? null
-                              : { text: "clicked" };
-                          },
-                        },
-                      ];
-                    },
-                  },
-                },
-              ]}
-            />
-          </RenderBar>
-*/

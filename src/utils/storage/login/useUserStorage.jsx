@@ -9,7 +9,7 @@ export const useUserStorage = create()(
       login: Logined() ? Logined().inlog : false,
       res: Logined() ? Logined().res : {},
       setLogin: async (state) => {
-        const port = window.location.port || 3000;
+        const port = 3000 | import.meta.env.PORT;
         const url = `http://${window.location.hostname}:${port}/student/login`;
         const method = "POST";
         const data = await useFetch(state, url, method);

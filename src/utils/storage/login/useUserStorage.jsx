@@ -17,7 +17,8 @@ export const useUserStorage = create()(
       },
 
       setCreateUser: async (state) => {
-        const url = `http://${window.location.hostname}:3000/student/create`;
+        const port = 3000 | import.meta.env.PORT;
+        const url = `http://${window.location.hostname}:${port}/student/create`;
         const method = "POST";
         const data = await useFetch(state, url, method);
         console.log(data);

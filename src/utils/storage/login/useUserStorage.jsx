@@ -10,7 +10,7 @@ export const useUserStorage = create()(
       res: Logined() ? Logined().res : {},
       setLogin: async (state) => {
         //const port = 3000 | import.meta.env.PORT;
-        const url = `http://student-back-three.vercel.app/`;
+        const url = `http://${window.location.hostname}:3000/`;
         const method = "POST";
         const data = await useFetch(state, url, method);
         set({ res: data, login: data?.active });

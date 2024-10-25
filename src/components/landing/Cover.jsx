@@ -21,7 +21,7 @@ export const Cover = () => {
     <div className={styles["content-cover"]}>
       <div className={styles["l-cover"]}>
         <img
-          src="../../../public/studiantes/imgcover.jpg"
+          src="../../../public/studiantes/imgcover.png"
           alt="img studiante"
         />
       </div>

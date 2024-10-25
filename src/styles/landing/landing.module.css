@@ -18,9 +18,6 @@
   width: 100%;
   display: flex;
   max-width: 1800px;
-  background: fixed;
-  background-color: rgba(0, 0, 0, 0.192);
-  background-image: url(../../../public/cover/bg_1.png);
 }
 
 .prefooter {

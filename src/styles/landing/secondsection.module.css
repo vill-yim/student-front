@@ -3,73 +3,70 @@
 .second {
   width: 100%;
   height: 100vh;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+
+
+
+.content-targets{
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 5%;
+  background: #eaefff;
+  justify-content:center;
+}
+.hide-target{
+  width: 100%;
+  margin: 0 auto;
+  margin: 5px;
+  width: 350px;
+  height: 80px;
+  transition: all .3s ease-out;
+  overflow: hidden;
+  margin: 10px;
+  border-bottom: 1px solid  #303755;
+}
+
+.show-target{
+  transition: all .3s ease-out;
+  width: 100%;
+  margin-top: 0 auto;
+  width: 350px;
+  max-height: 100%;
 }
 
 
-
-.l-content {
+.title-target{
   width: 100%;
-  max-width: 460px;
-  max-height: 420px;
+  border-bottom: 1px solid  #303755;
+  padding: 1rem;
   display: flex;
+  cursor: pointer;
+  justify-content:space-between ;
+  align-items: center;
 }
 
-.img {
-  width: 100%;
-  height: 420px;
-  background-image: url("../../../public/cover/tired.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
 
-.r-content {
-  width: 100%;
-  height: 100%;
-  max-width: 680px;
-  border-radius: 12px;
+.title-target h4{
+  display: flex;
+  align-items: center;
   justify-content: space-around;
-  backdrop-filter: blur(5px) brightness(0.26);
 }
 
-.r-content h3 {
+.l-target {
+  max-width: 480px;
+  margin: 0 auto;
+
+}
+
+
+.r-target {
   width: 100%;
-  height: 100%;
-  max-width: 350px;
-  text-align: center;
-  justify-content: center;
-  margin-top: 30px;
-  max-height: 120px;
-  font-weight: 600;
-  font-family: montserrat;
-  font-size: clamp(1.8rem, 2rem, 2.5rem);
-}
-
-.r-content p{
-  width: 100%;
-  height: 100%;
-  font-weight: 400;
-  padding: .5rem;
-  font-family: poppins;
-  font-size: clamp(1rem,1.3rem,1.5rem);
-  color: #fff6ff;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 
-@media (max-width:900px) {
-  
-  .second{
-    height: 100%;
-    margin: 10px 0;
-  }
-
-  .r-content{
-    height: 100%;
-  }
-
-}

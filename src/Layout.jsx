@@ -131,7 +131,7 @@ export const Layout = ({ children }) => {
       )}
 
       <div
-        style={{ background: `${theme ? "#302e34" : "#eaefff"}` }}
+        style={{ background: `${theme ? "#302e34" : "#f5f5f5"}` }}
         className={style["content"]}
       >
         <div

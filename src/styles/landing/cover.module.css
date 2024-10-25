@@ -1,52 +1,52 @@
 @import url("https://fonts.googleapis.com/css2?family=family=Anton&family=Ubuntu&family=Montserrat&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .content-cover {
-  width: 100%;
-  height: 100%;
+  max-height: 100%;
   max-width: 1800px;
   display: flex;
-  flex-wrap: wrap;
   margin: 0 auto;
   position: relative;
-  justify-content: space-between;
+  justify-content: space-around;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-.coverContainer {
+.cover-container {
   width: 100%;
-  height: 100%;
-  max-width: 550px;
-  max-height: 350px;
+  max-width: 750px;
   padding: 2.5rem;
   border-radius: 1rem;
   text-align: center;
-  color: #2c5282;
+  margin-top: 1rem;
 }
 
+.subtitle,
 .title {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-  color: var(--title-color, #1a1a1a);
-}
-
-.subtitle {
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  max-width: 380px;
+  font-size: clamp(2.5rem, 2.8vw, 3rem);
   margin-bottom: 1.5rem;
   font-weight: 600;
-  color: var(--subtitle-color, #4a4a4a);
 }
+
+
 
 .description {
   font-size: clamp(1rem, 2.5vw, 1.125rem);
-  margin-bottom: 2rem;
   line-height: 1.6;
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--text-color, #333333);
+  width: 100%;
+  height: 120px;
+  margin-top: 1rem;
+  text-align: start;
+  margin-bottom: 1rem;
+  padding: .5rem;
+  overflow-y: auto;
+}
+
+.buttons {
+  height: 180px;
+  margin-top: 1.5rem;
+  display: block;
+  justify-content: center;
 }
 
 .ctaButton {
@@ -54,15 +54,29 @@
   color: var(--cta-text-color, #ffffff);
   font-weight: 700;
   font-size: 1rem;
-  padding: 0.75rem 2rem;
-  border-radius: 9999px;
+  padding: 0.75rem 1rem;
+  border-radius: 9px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  margin: 3px;
   justify-content: center;
+}
+
+.darkbg-h1 {
+  color: #303755;
+  max-width: 420px;
+  text-align: start;
+  padding:.5rem;
+}
+
+.lgbg-h1 {
+  padding:.5rem;
+  text-align: start;
+  max-width: 420px;
+  color: #eaefff;
 }
 
 .ctaButton:hover {
@@ -77,44 +91,55 @@
   box-shadow: 0 0 0 3px var(--cta-focus-color, rgba(59, 130, 246, 0.5));
 }
 
-.ctaButton svg {
-  margin-right: 0.5rem;
-}
-
-@media (max-width: 640px) {
-  .coverContainer {
-    padding: 2rem 1.5rem;
-  }
-
-  .ctaButton {
-    width: 100%;
-  }
-}
-.r-cover {
+.l-cover {
   width: 100%;
-  height: 100%;
-  max-width: 750px;
+  max-width: 480px;
   max-height: 450px;
 }
 
-.graph-cover {
-  width: 100%;
+.l-cover img {
+  max-width: 100%;
+  width: 480px;
   height: 380px;
-  margin-top: 90px;
-  border-radius: 0 12px 12px 0;
-  overflow-y: auto;
-}
-
-.graph-cover::-webkit-scloginbar {
-  display: none;
 }
 
 @media (max-width: 900px) {
-  .content-cover {
-    display: block;
-    justify-content: center;
-    margin: 0 auto;
+  .lgbg-h1 span {
+    background: #303755;
   }
+
+  .darkbg-h1 span {
+    background: #eaefff;
+  }
+
+  .content-cover {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .cover-container {
+    order: 1;
+    max-width: 520px;
+    margin-left: -20%;
+    transform: translateY(20%);
+  }
+
+  .title {
+    font-size: clamp(1.3rem, 1.5rem, 1.8rem);
+  }
+  .l-cover {
+    margin-left:30%;
+    position: absolute;
+    order: 2;
+  }
+
+  .l-cover img {
+    max-width: 100%;
+    width: 400px;
+    max-height: 280px;
+  }
+
 }
 
 /*

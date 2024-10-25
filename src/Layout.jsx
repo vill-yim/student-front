@@ -80,7 +80,8 @@ export const Layout = ({ children }) => {
                 />
                 <span>
                   <h3 className={style[theme ? "li-dk" : "li-lg"]}>
-                  ¡ Hola, {res?.name} <br />{res?.lastname} !
+                    ¡ Hola, {res?.name} <br />
+                    {res?.lastname} !
                   </h3>
                 </span>
               </>
@@ -130,7 +131,7 @@ export const Layout = ({ children }) => {
       )}
 
       <div
-        style={{ background: `${theme ? "#302e34" : "#d6e9ee"}` }}
+        style={{ background: `${theme ? "#302e34" : "#eaefff"}` }}
         className={style["content"]}
       >
         <div

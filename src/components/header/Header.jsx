@@ -80,7 +80,8 @@ export const Header = () => {
             )}
           </div>
         ) : (
-          <img src="/logo/logo.png" alt="logo" />
+          <div className={styleHeader["logo-header"]}>
+          </div>
         )}
       </div>
 

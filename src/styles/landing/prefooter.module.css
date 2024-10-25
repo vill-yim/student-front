@@ -1,86 +1,89 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap?family=Montserrat&family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.prefooter {
+.content-prefooter{
+width: 100%;
+margin: 0 auto;
+justify-content: center;
+}
+
+.title-prefooter{
   width: 100%;
+margin: 0 auto;
+text-align: center;
+}
+
+.title-dk{
+  margin-top: 1.5rem;
+  font-family: Playfair Display;
+  font-size: clamp(2rem,2.5rem,2.8rem);
+  color: #eaefff;
+}
+
+.title-lg {
+  margin-top: 1.5rem;
+  color: #303755;
+  font-family: Playfair Display;
+  font-size: clamp(2rem,2.5rem,2.8rem);
+  }
+
+
+
+.content-targets{
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  backdrop-filter: blur(10px) brightness(0.46);
-}
-
-.l-content {
-  width: 100%;
-  max-width: 650px;
-  overflow: hidden;
-  border-radius: 12px;
+  margin: 0 auto;
+  margin-top: 2.5rem;
   justify-content: space-around;
-  position: relative;
 }
 
-.l-content h3 {
-  width: 100%;
-  max-width: 350px;
-  text-align: center;
-  justify-content: center;
-  margin-top: 30px;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #ffa500;
-  font-family: montserrat;
-  font-size: clamp(1.8rem, 2rem, 2.5rem);
+
+.target{
+  width: 350px;
+  height: 420px;
 }
 
-.l-content p {
-  width: 100%;
-  height: 100%;
+.target-img{
+  max-width:100%;
+  width: 60px;
+  height:60px;
+  margin: 0 auto;
+}
+
+.titlelg-target{
+  color: #303755;
+}
+
+.titledk-target{
+  color: #eaefff;
+}
+
+.titledk-target,.titlelg-target{
+  margin: 0 auto;
   font-weight: 400;
-  padding: 0.5rem;
-  padding-top: 1rem;
-  font-family: poppins;
-  font-size: clamp(1rem, 1.3rem, 1.5rem);
-  color: #f9f871;
+  font-family: montserrat ;
+  font-size: clamp(1rem,1.5rem, 1.8rem);
+  max-width: 260px;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.descripdk-target{
+color: #eaefff;
 }
 
-.r-content {
-  width: 100%;
-  max-width: 450px;
-  display: flex;
-  background-image: url("../../../public/cover/bg_2.png");
-  background-position: center;
-  background-size: cover;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
+.descriplg-target{
+  color: #303755;
+
 }
 
-.img {
-  width: 100%;
-  height: 460px;
-  background-image: url("../../../public/cover/prefooter.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.l-content::before {
-  position: absolute;
-  content: "";
-  z-index: -1;
-  width: 700px;
-  height: 600px;
-  border-radius: 100%;
-  transform: translateY(-160px);
-  background: rgba(255, 0, 157, 0.199);
-}
-
-.r-content::before {
-  position: absolute;
-  content: "";
-  z-index: -1;
-  width: 700px;
-  height: 600px;
-  border-radius: 100%;
-  transform: translateY(180px) translateX(-60px);
-  background: rgba(255, 0, 157, 0.199);
+.descripdk-target,.descriplg-target{
+width: 100%;
+font-size: clamp(.8rem,.9rem,1rem);
+font-family: poppins;
+margin-top: 1rem;
+max-width: 300px;
+margin: 0 auto;
+margin-top: 1rem;
+text-align: center;
 }

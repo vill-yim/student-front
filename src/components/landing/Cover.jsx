@@ -19,43 +19,46 @@ export const Cover = () => {
 
   return (
     <div className={styles["content-cover"]}>
-      <div className={styles['coverContainer']}>
-        <h1
-          style={{ color: theme ? "#eaefff" : "#303755" }}
-          className={styles['title']}
-        >
-          Aprende Economía de Forma Divertida
-        </h1>
-        <h2
-          style={{ color: theme ? "#fff7d6" : "#303755" }}
-          className={styles['subtitle']}
-        >
-          Descubre el mundo financiero con nuestra app interactiva
-        </h2>
-        <p
-          style={{ color: theme ? "#ffeeca" : "#2c5282" }}
-          className={styles['description']}
-        >
-          Sumérgete en conceptos económicos clave, participa en simulaciones de
-          mercado y desafía tus conocimientos con quizzes emocionantes.
-          ¡Prepárate para dominar la economía!
-        </p>
-        <button className={styles['ctaButton']}>
-          <span>
-            <img
-              width="50"
-              height="50"
-              src="https://img.icons8.com/ios/50/open-book--v1.png"
-              alt="open-book--v1"
-            />
-          </span>
-          <span>Comienza tu viaje económico</span>
-        </button>
+      <div className={styles["l-cover"]}>
+        <img
+          src="../../../public/studiantes/imgcover.jpg"
+          alt="img studiante"
+        />
       </div>
 
-      <div className="r-cover">
-        <div className={styles["graph-cover"]}>
-          <GraphCover data={initialData} />
+      <div className={styles["cover-container"]}>
+        <h1
+          className={(styles[theme ? "lgbg-h1" : "darkbg-h1"])}
+        >
+          <span>Empoderamos jóvenes <br /> para transformar comunidades.</span>
+        </h1>
+        <p
+          style={{ color: theme ? "#ffeeca" : "#2c5282" }}
+          className={styles["description"]}
+        >
+          Creemos en el potencial de cada estudiante como agente de cambio.
+          Nuestra misión es acompañar a jóvenes, maestros y familias en el
+          desarrollo de habilidades como ahorro, inversión y emprendimiento. A
+          través de una plataforma educativa interactiva con juegos, desafíos y
+          tecnología 4.0, los preparamos para tomar decisiones financieras
+          responsables y contribuir al crecimiento de sus comunidades.
+        </p>
+
+        <div className={styles["buttons"]}>
+          <button className={styles["ctaButton"]}>
+            <span></span>
+            <span>Servicios</span>
+          </button>
+
+          <button className={styles["ctaButton"]}>
+            <span></span>
+            <span>Estudiantes</span>
+          </button>
+
+          <button className={styles["ctaButton"]}>
+            <span></span>
+            <span>Contactanos</span>
+          </button>
         </div>
       </div>
     </div>

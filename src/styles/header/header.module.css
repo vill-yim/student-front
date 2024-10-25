@@ -74,6 +74,18 @@
   margin: 0 auto;
 }
 
+
+.logo-header{
+width:90px;
+height: 68px;
+background-image: url('../../../public//logo/logo.png');
+background-repeat: no-repeat;
+background-position:center;
+background-size: contain;
+}
+
+
+
 @keyframes inicio {
   from {
     opacity: 0;

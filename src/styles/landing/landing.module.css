@@ -25,22 +25,11 @@
 
 .prefooter {
   width: 100%;
-  height: 100%;
   display: flex;
   max-width: 1800px;
   background: fixed;
-  background-color: rgba(0, 0, 0, 0.192);
 }
 
-.cover::before {
-    width: 1800px;
-    height: 800px;
-  position: absolute;
-  content: "";
-  transform: translateY(-300px) translateX(-200px);
-  border-radius: 100%;
-  background:  rgba(80, 6, 70, 0.192);
-}
 
 @keyframes show {
   from {

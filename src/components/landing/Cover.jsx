@@ -20,10 +20,7 @@ export const Cover = () => {
   return (
     <div className={styles["content-cover"]}>
       <div className={styles["l-cover"]}>
-        <img
-          src="../../../public/studiantes/imgcover.png"
-          alt="img studiante"
-        />
+       <div className={styles["img-cover"]}></div>
       </div>
 
       <div className={styles["cover-container"]}>

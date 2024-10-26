@@ -7,6 +7,8 @@
   animation: show 0.3s linear;
 }
 
+
+
 .cover {
   width: 100%;
   margin: 0 auto;
@@ -26,6 +28,9 @@
   max-width: 1800px;
   background: fixed;
 }
+
+
+
 
 
 @keyframes show {

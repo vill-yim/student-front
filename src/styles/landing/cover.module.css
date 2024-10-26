@@ -119,8 +119,10 @@
 }
 
   .buttons{
+    justify-content: center;
     max-height: 40px;
     display: flex;
+    margin: 0 auto;
   }
 
   .lgbg-h1 span {

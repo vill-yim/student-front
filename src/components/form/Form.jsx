@@ -3,7 +3,7 @@ import styleForm from "../../styles/login/login.module.css";
 import { useUserStorage } from "../../utils/storage/login/useUserStorage";
 
 export const Form = () => {
-  const { setLogin, setCreateUser } = useUserStorage();
+  const { setLogin, setSimulated, setCreateUser } = useUserStorage();
 
   const [isSignUp, setIsSignUp] = useState(true);
   const [createUser, setCreate] = useState({
@@ -40,7 +40,7 @@ export const Form = () => {
 
   const handleCreateUser = async (e) => {
     e.preventDefault();
-   await setCreateUser(createUser);
+    await setCreateUser(createUser);
     window.location.href = "/";
   };
 
@@ -49,6 +49,28 @@ export const Form = () => {
     await setLogin(loginUser);
     window.location.href = "/";
   };
+
+  const handleSimulated = (e) => {
+   
+     if ("Notification" in window) {
+       // Pedir permiso al usuario
+       Notification.requestPermission().then((permission) => {
+         if (permission === "granted") {
+           // Crear y mostrar la notificación
+           new Notification("Título de la notificación", {
+             body: "Inicio de sesión exitoso!!!",
+             icon: "ruta/a/tu/icono.png", // Opcional: ruta a un icono
+           });
+         }
+
+       });
+
+        setSimulated(loginUser);
+        window.location.href='/'
+
+     }
+  };
+
   return (
     <div className={styleForm["container-form"]}>
       {isSignUp ? (
@@ -97,7 +119,10 @@ export const Form = () => {
               </label>
 
               <div className={styleForm["button-form"]}>
-                <button className={styleForm["submit"]} onClick={handleLogin}>
+                <button
+                  className={styleForm["submit"]}
+                  onClick={handleSimulated}
+                >
                   Iniciar Sesión
                 </button>
               </div>

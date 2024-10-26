@@ -2,14 +2,17 @@ import { create } from "zustand";
 import { Logined } from "../../providers/logined";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { useFetch } from "../../hooks/useFetch";
-
+import { authenticateStudent } from "./simulateLogin";
+//login=Logined() ? Logined().login :
+//res: Logined() ? Logined().res :
 export const useUserStorage = create()(
   persist(
     (set) => ({
-      login: Logined() ? Logined().inlog : false,
-      res: Logined() ? Logined().res : {},
+      login: Logined() ? Logined().login : false,
+      res:Logined() ? Logined().res : null,
+
       setLogin: async (state) => {
-        const port = 3000 | "student-back-three.vercel.app";
+        const port = 3000 | "student-back-three.vercel.app/student/login";
         const url = `http://${window.location.hostname}:${port}/student/login`;
         const method = "POST";
         const data = await useFetch(state, url, method);
@@ -29,6 +32,22 @@ export const useUserStorage = create()(
         sessionStorage.clear();
         hideNav(false);
         set({ login: false, res: [] });
+      },
+
+      setSimulated: ( state) => {
+        console.log("autenticando:");
+
+        const student = authenticateStudent(
+          state.number_identify,
+          state.password
+        );
+        if (student) {
+          console.log("estudiante autenticado:", student);
+          set({
+            res: student,
+            login: true,
+          });
+        }
       },
     }),
     {

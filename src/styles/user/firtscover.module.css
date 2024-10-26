@@ -29,7 +29,6 @@
 
 .l-up-div {
   border-radius: 18px 0 0 0;
-  background: rgba(75, 192, 192, 0.425);
   height: 240px;
   overflow: hidden;
 }
@@ -116,9 +115,6 @@
   height: 110px;
   display: flex;
   overflow: hidden;
-
-  border: 1px solid rgba(255, 206, 86, 0.8);
-  background: rgba(255, 207, 86, 0.603);
   margin-top: 3px;
 }
 
@@ -146,8 +142,6 @@
 
 .r-up-div {
   border-radius: 0 18px 0 0;
-  border: 1px solid rgba(50, 205, 50, 0.8);
-  background: rgba(50, 205, 50, 0.486);
   height: 120px;
   overflow: hidden;
 }
@@ -192,7 +186,6 @@ align-items: flex-end;
   line-height: 1;
   height: 100%;
   justify-content: space-between;
-background-color: rgba(97, 83, 72, 0.61);
   font-size: clamp(.7rem,.8rem,1rem);
 transform: translateY(50px);
 }
@@ -225,7 +218,6 @@ margin-left: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: rgba(153, 102, 255, 0.425);
 }
 .r-gift{
   width: 100%;

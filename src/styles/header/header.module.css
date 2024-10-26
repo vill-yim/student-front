@@ -253,7 +253,7 @@ background-size: contain;
   background: linear-gradient(135deg, #6e8efb, #a777e3);
   color: white;
   padding: 14px 28px;
-  border-radius: 50px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
     transform 0.3s ease, box-shadow 0.4s ease;

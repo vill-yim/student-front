@@ -102,28 +102,43 @@ export const Layout = ({ children }) => {
                 name={"inicio"}
               />
               <RenderLi
-                route={"/ubicacion"}
-                src={"https://img.icons8.com/fluency/35/location--v1.png"}
-                alt={"ubicacion"}
-                name={"Ubicación"}
+                route={"/class"}
+                src={
+                  "https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/35/external-video-stay-at-home-xnimrodx-lineal-color-xnimrodx.png"
+                }
+                alt={"clases"}
+                name={"Clases & Tareas"}
               />
+
               <RenderLi
                 route={"/calendario"}
-                src={"https://img.icons8.com/color-glass/35/overtime--v1.png"}
+                src={
+                  "https://img.icons8.com/external-vectorslab-flat-vectorslab/35/external-Schedule-business-and-finance-vectorslab-flat-vectorslab.png"
+                }
                 alt={"calendario"}
                 name={"Calendario"}
               />
+
+              <RenderLi
+                route={"/games"}
+                src={"https://img.icons8.com/color/35/joystick.png"}
+                alt={"games"}
+                name={"games"}
+              />
+
               <RenderLi
                 route={"/informes"}
-                src={"https://img.icons8.com/fluency/35/graph-report.png"}
+                src={
+                  "https://img.icons8.com/external-soft-fill-juicy-fish/35/external-data-marketing-soft-fill-soft-fill-juicy-fish-3.png"
+                }
                 alt={"informes"}
                 name={"Informes"}
               />
               <RenderLi
-                route={"/chats"}
+                route={"/chat"}
                 src={"https://img.icons8.com/color/35/chat--v1.png"}
-                alt={"chats"}
-                name={"Chats"}
+                alt={"chat"}
+                name={"Chat"}
               />
             </ul>
           </div>
@@ -141,9 +156,13 @@ export const Layout = ({ children }) => {
           <SubHeader />
           <Header />
         </div>
-        <div className={style["pages"]} id="pages">
-          {" "}
-          {children}{" "}
+        <div
+          className={`${
+            (location.pathname && style["location-animate"], style["pages"])
+          }`}
+          id="pages"
+        >
+          {children}
         </div>
       </div>
     </div>

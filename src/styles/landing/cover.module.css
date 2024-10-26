@@ -114,7 +114,7 @@
 @media (max-width: 900px) {
 
 .content-cover{
-  height: 75vh;
+  height: 100%;
   margin-bottom: 2rem;
 }
 

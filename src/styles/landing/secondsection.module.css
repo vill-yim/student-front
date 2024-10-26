@@ -2,7 +2,6 @@
 .second {
   width: 100%;
   margin: 0 auto;
-  margin-top: -2rem;
   justify-content: space-between;
 }
 
@@ -39,8 +38,8 @@
 }
 
 .l-target {
-  width: 100%;
-  max-width: 580px;
+  width: 580px;
+  max-width: 100%;
   margin: 0 auto;
 
 }
@@ -59,7 +58,7 @@
   width: 100%;
   margin: 0 auto;
   margin: 5px;
-  width: 580px;
+  max-width: 580px;
   max-height: 90px;
   transition: all .3s ease-out;
   overflow: hidden;
@@ -69,7 +68,7 @@
 .show-target{
   transition: all .3s ease-out;
   width: 100%;
-  width: 580px;
+  max-width: 580px;
   max-height: 100%;
 }
 

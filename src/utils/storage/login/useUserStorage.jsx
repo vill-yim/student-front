@@ -42,7 +42,6 @@ export const useUserStorage = create()(
           state.password
         );
         if (student) {
-          console.log("estudiante autenticado:", student);
           set({
             res: student,
             login: true,

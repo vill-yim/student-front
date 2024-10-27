@@ -14,7 +14,7 @@ import { useState } from "react";
 const RenderBars = ({ children }) => {
   return (
     <div className={style["content-targets"]}>
-      {" "}
+     
       <div className={style["target"]}> {children}</div>
     </div>
   );
@@ -189,22 +189,14 @@ const RenderCover = () => {
 
         <div className={style["content-targets"]}>
           <div className={style["targets-scroll"]}>
-            <RenderBars children={Victory} />
-            <RenderBars children={Victory2} />
             <RenderBars children={Victory3} />
+            <RenderBars children={Victory2} />
             <RenderBars children={Victory} />
             <RenderBars children={Victory} />
             <RenderBars children={Victory} />
             <RenderBars children={Victory} />
             <RenderBars children={Victory} />
             <RenderBars children={Victory} />
-          </div>
-
-          <div className={style["mesages-tables"]}>
-            <p>
-              Tu profesor dice esto: <br />
-              <span>{observation}</span>
-            </p>
           </div>
         </div>
       </div>
@@ -213,11 +205,116 @@ const RenderCover = () => {
 };
 
 const RenderAsideCover = () => {
+
+ const grades = [
+   {
+     subject: "Ciencias sociales",
+     final: 4.4,
+     color: "#FF6B6B",
+   },
+   {
+     subject: "Lengua castellana",
+     final: 4.8,
+     color: "#4ECDC4",
+   },
+   {
+     subject: "Matematicas",
+     final: 3.8,
+     color: "#45B7D1",
+   },
+ ];
+
   return (
     <div className={style["aside"]}>
       <div className={style["title-aside"]}>title</div>
 
-      <div className={style["text-aside"]}>aside</div>
+      <div
+        style={{
+          width: "600px",
+          maxWidth: "100%",
+          padding: "20px",
+          display: "flex",
+          justifyContent: "space-around",
+          flexWrap: "wrap",
+          gap: "20px",
+        }}
+      >
+        {grades.map((grade, index) => (
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h3
+              style={{
+                margin: "0 0 15px 0",
+                fontSize: "18px",
+              }}
+            >
+              {grade.subject}
+            </h3>
+
+            <div
+              style={{
+                width: "150px",
+                height: "150px",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "50%",
+                  background: `conic-gradient(
+                ${grade.color} ${(grade.final / 5) * 360}deg,
+                #e5e5e5 ${(grade.final / 5) * 360}deg 360deg
+              )`,
+                }}
+              />
+
+              <div
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: "120px",
+                  height: "120px",
+                  background: "white",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "24px",
+                    fontWeight: "bold",
+                    color: grade.color,
+                  }}
+                >
+                  {grade.final}
+                </span>
+              </div>
+            </div>
+
+            <p
+              style={{
+                margin: "15px 0 0 0",
+                fontSize: "14px",
+                color: "#666",
+              }}
+            >
+              {((grade.final / 5) * 100).toFixed(1)}%
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
@@ -225,8 +322,8 @@ const RenderAsideCover = () => {
 const CoverUser = () => {
   return (
     <div className={style["renders"]}>
-      <RenderCover />
       <RenderAsideCover />
+      <RenderCover />
     </div>
   );
 };

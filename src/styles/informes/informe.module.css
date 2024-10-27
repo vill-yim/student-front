@@ -1,36 +1,382 @@
+.all-container{
+  width:1250px;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.profileImg {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.studentInfo h1 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+}
+
+.studentInfo p {
+  margin: 0.5rem 0;
+  color: #6c757d;
+}
+
+.gradesSection {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.gradesSection h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.chartWrapper {
+  display: flex;
+  height: 600px;
+  max-height: 100%;
+  margin: 2rem 0;
+  max-width: 100%;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+
+
+.gradesDetail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gradeCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid #e9ecef;
+}
+
+.gradeCard h3 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.code {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.subjectChart {
+  margin: 1rem -1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.gradesList {
+  margin-top: 1rem;
+}
+
+.gradeItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.gradeValue {
+  font-weight: 600;
+}
+
+.finalGrade {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  margin-top: 0.5rem;
+  border-top: 2px solid #e9ecef;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.points {
+  margin-top: 1rem;
+  text-align: right;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.excellent {
+  color: #4CAF50;
+}
+
+.good {
+  color: #FFC107;
+}
+
+.poor {
+  color: #F44336;
+}
+
+/* Estilos del formulario de login */
+.loginContainer {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.loginContainer h2 {
+  margin: 0 0 1.5rem 0;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
 .button {
-  background-color: #0066cc;
+  width: 100%;
+  padding: 0.75rem;
+  background: #007bff;
   color: white;
-  padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .button:hover {
-  background-color: #0052a3;
+  background: #0056b3;
 }
 
-.gradesTable {
-  width: 100%;
-  border-collapse: collapse;
+.error {
+  color: #dc3545;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
-.gradesTable th,
-.gradesTable td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.gradesTable th {
-  background-color: #f4f4f4;
-}
-
-.chartContainer {
-  margin-top: 2rem;
-  border: 1px solid #ddd;
-  padding: 1rem;
+.subjectCard {
+  background: white;
+  padding: 1.5rem;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease;
+}
+
+.subjectCard:hover {
+  transform: translateY(-2px);
+}
+
+.subjectTitle {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.subjectCode {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.circleChartContainer {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
+}
+
+.circleChart {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: rotate(-90deg);
+}
+
+.chartSegment {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+}
+
+.chartSegment::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--segment-color);
+  transform-origin: 50% 50%;
+  transform: rotate(var(--segment-angle));
+  transition: transform 0.3s ease;
+}
+
+.creditLabel {
+  position: absolute;
+  transform: rotate(90deg) translate(70px, -20px);
+  font-size: 12px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  white-space: nowrap;
+}
+
+.legendContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.legendText {
+  color: #4a5568;
+}
+
+.gradeInfo {
+  margin-top: 1.5rem;
+  border-top: 2px solid #e9ecef;
+  padding-top: 1rem;
+}
+
+.finalGradeRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.finalGradeValue {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.gradeHigh {
+  color: #4CAF50;
+}
+
+.gradeMedium {
+  color: #FFC107;
+}
+
+.gradeLow {
+  color: #F44336;
+}
+
+.creditTotal {
+  margin-top: 1rem;
+  text-align: right;
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .circleChartContainer {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .creditLabel {
+    transform: rotate(90deg) translate(60px, -20px);
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .studentInfo {
+    text-align: center;
+  }
+
+  .gradesDetail {
+    grid-template-columns: 1fr;
+  }
 }

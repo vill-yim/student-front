@@ -3,8 +3,11 @@ import { Logined } from "../../providers/logined";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { useFetch } from "../../hooks/useFetch";
 import { authenticateStudent } from "./simulateLogin";
+
 //login=Logined() ? Logined().login :
 //res: Logined() ? Logined().res :
+
+
 export const useUserStorage = create()(
   persist(
     (set) => ({

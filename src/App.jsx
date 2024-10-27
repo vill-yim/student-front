@@ -10,7 +10,7 @@ import { useUserStorage } from "./utils/storage/login/useUserStorage";
 import { Calendar } from "./components/calendar/Calendar";
 import { ChatBot } from "./pages/chat/ChatBot";
 import { Games } from "./pages/games/Games";
-import { Informe } from "./pages/Informe";
+import { Informe } from "./pages/informes/Informe";
 
 function App() {
   const { login } = useUserStorage();

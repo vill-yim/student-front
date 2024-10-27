@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "../../styles/calendar/calendar.module.css";
-
+import { preferenceStore } from "../../utils/storage/preferences/preferenceStore";
 export const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [events, setEvents] = useState({});
@@ -129,13 +129,17 @@ export const Calendar = () => {
     const dateStr = formatDate(date);
     return events[dateStr]?.length || 0;
   };
+  const {theme} = preferenceStore()
 
   return (
     <div className={styles["content-calendar"]}>
-       {selectedDate && (
+      {selectedDate && (
         <div className={styles["agg-evt"]}>
           {selectedDate && (
-            <div className={styles.eventForm}>
+            <div
+              style={{ background: theme ? "#f7f7f777" : "#f5f5f5" }}
+              className={styles.eventForm}
+            >
               <h3>Agregar evento para {selectedDate.toLocaleDateString()}</h3>
               <form onSubmit={handleEventSubmit}>
                 <input
@@ -207,8 +211,11 @@ export const Calendar = () => {
           )}
         </div>
       )}
-     
-      <div className={styles.calendar}>
+
+      <div
+        style={{ background: theme ? "#f7f7f777" : "#f5f5f5" }}
+        className={styles.calendar}
+      >
         <div className={styles.header}>
           <div className={styles.monthYear}>
             {MONTHS[currentDate.getMonth()]} {currentDate.getFullYear()}
@@ -252,8 +259,6 @@ export const Calendar = () => {
           ))}
         </div>
       </div>
-
-    
     </div>
   );
 };

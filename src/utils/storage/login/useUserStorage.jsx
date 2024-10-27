@@ -24,7 +24,6 @@ export const useUserStorage = create()(
         const url = `http://${window.location.hostname}:${port}/student/create`;
         const method = "POST";
         const data = await useFetch(state, url, method);
-        console.log(data);
         set({ res: data, login: data?.active });
       },
       setLogout: (hideNav) => {

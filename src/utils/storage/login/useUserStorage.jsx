@@ -9,10 +9,10 @@ export const useUserStorage = create()(
   persist(
     (set) => ({
       login: Logined() ? Logined().login : false,
-      res:Logined() ? Logined().res : null,
+      res: Logined() ? Logined().res : null,
 
       setLogin: async (state) => {
-        const port = 3000 ;
+        const port = 3000;
         const url = `http://${window.location.hostname}:${port}/student/login`;
         const method = "POST";
         const data = await useFetch(state, url, method);
@@ -20,7 +20,7 @@ export const useUserStorage = create()(
       },
 
       setCreateUser: async (state) => {
-        const port = 3000 | import.meta.env.PORT;
+        const port = 3000;
         const url = `http://${window.location.hostname}:${port}/student/create`;
         const method = "POST";
         const data = await useFetch(state, url, method);
@@ -34,7 +34,7 @@ export const useUserStorage = create()(
         set({ login: false, res: [] });
       },
 
-      setSimulated: ( state) => {
+      setSimulated: (state) => {
         console.log("autenticando:");
 
         const student = authenticateStudent(

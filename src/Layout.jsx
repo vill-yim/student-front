@@ -80,8 +80,8 @@ export const Layout = ({ children }) => {
                 />
                 <span>
                   <h3 className={style[theme ? "li-dk" : "li-lg"]}>
-                    ¡ Hola, {res?.name} <br />
-                    {res?.lastname} !
+                    {res?.name} <br />
+                    {res?.lastname} 
                   </h3>
                 </span>
               </>

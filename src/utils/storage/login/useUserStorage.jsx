@@ -35,8 +35,6 @@ export const useUserStorage = create()(
       },
 
       setSimulated: (state) => {
-        console.log("autenticando:");
-
         const student = authenticateStudent(
           state.number_identify,
           state.password

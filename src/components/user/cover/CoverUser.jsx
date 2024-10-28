@@ -22,7 +22,7 @@ const AnualCover = ({ state }) => {
   }
 
   const Victory3 = (
-    <svg viewBox="0 0 610 420">
+    <svg viewBox="0 0 610 320">
       <VictorySharedEvents
         events={[
           {

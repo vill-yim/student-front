@@ -50,7 +50,7 @@ export const FlexFirstCover = () => {
               <div
                 className={styles["img-carrusel"]}
                 style={{
-                  backgroundImage: "url('../../../public/pages/evento.jpg')",
+                  backgroundImage: "url('https://i.ibb.co/jLM7gnb/evento.jpg')",
                 }}
               />
             </div>

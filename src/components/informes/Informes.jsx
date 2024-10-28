@@ -47,22 +47,28 @@ export const Informes = () => {
           className={styles.profileImg}
         />
         <div className={styles.studentInfo}>
-          <h1>
+          <h1 style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
             {data.res.name} {data.res.last_name}
           </h1>
-          <p>
-            Documento: {data.res.documentType} {data.res.number_identify}
+          <p style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
+            Documento:
+            <b style={{ marginLeft: "10px", letterSpacing: ".2rem" }}>
+              {data.res.documentType} {data.res.number_identify}
+            </b>
           </p>
-          <p>Fecha de nacimiento: {data.res.dateOfBirth}</p>
+          <p style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
+            Fecha de nacimiento:
+            <b style={{ letterSpacing: ".3rem" }}> {data.res.dateOfBirth}</b>
+          </p>
         </div>
       </div>
 
       <div className={styles.gradesSection}>
-        <h2>Resumen de Calificaciones</h2>
-        <div
-          className={styles.chartWrapper}
-        >
-         <CombinedChart theme={theme}/>
+        <h2 style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
+          Resumen de Calificaciones
+        </h2>
+        <div className={styles.chartWrapper}>
+          <CombinedChart theme={theme} />
         </div>
 
         <div className={styles.gradesDetail}>
@@ -73,7 +79,12 @@ export const Informes = () => {
               className={styles.gradeCard}
             >
               <h3>{grade.subject}</h3>
-              <p className={styles.code}>Código: {grade.code}</p>
+              <p
+                style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}
+                className={styles.code}
+              >
+                Código: <b>{grade.code}</b>
+              </p>
 
               <div
                 style={{ background: theme ? "#2c3e50" : "#f5f5f5" }}
@@ -137,7 +148,7 @@ export const Informes = () => {
 
               <div className={styles.gradesList}>
                 <div className={styles.finalGrade}>
-                  <span>Nota Final:</span>
+                  <span style={{ color: "#2c3e50" }}>Nota Final:</span>
                   <span
                     className={`${styles.gradeValue} ${
                       grade.final >= 4
@@ -151,10 +162,15 @@ export const Informes = () => {
                   </span>
                 </div>
               </div>
-              <p className={styles.points}>Creditos: {grade.points}</p>
+              <p
+                style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}
+                className={styles.points}
+              >
+                Creditos: <b> {grade.points}</b>
+              </p>
             </div>
           ))}
-          
+
           {data.res.grades.map((subject, index) => (
             <div
               key={index}
@@ -216,7 +232,9 @@ export const Informes = () => {
 
               <div className={styles.gradeInfo}>
                 <div className={styles.finalGradeRow}>
-                  <span>Nota Final:</span>
+                  <span style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
+                    Nota Final:
+                  </span>
                   <span
                     className={`${styles.finalGradeValue} ${
                       subject.final >= 4

@@ -18,7 +18,7 @@ export const CombinedChart = ({ theme }) => {
   ];
 
   return (
-    <svg viewBox="0 0 800 400">
+    <svg viewBox="0 0 900 450">
       <VictorySharedEvents
         events={[
           {
@@ -66,7 +66,7 @@ export const CombinedChart = ({ theme }) => {
         ]}
       >
         {/* Gráfico Circular */}
-        <g transform={"translate(0, 50)"}>
+        <g transform={"translate(0, -40)"} >
           <VictoryPie
             name="pie"
             width={300}
@@ -97,7 +97,7 @@ export const CombinedChart = ({ theme }) => {
         </g>
 
         {/* Gráfico de Barras */}
-        <g transform={"translate(400, 0)"}>
+        <g transform={"translate(400, -20)"}>
           <VictoryChart
             theme={VictoryTheme.material}
             domainPadding={25}

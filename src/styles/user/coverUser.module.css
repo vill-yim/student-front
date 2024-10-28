@@ -1,64 +1,78 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .renders {
+  padding: 0 0 0 0.2rem;
   width: 100%;
+  padding: 1rem;
   display: flex;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   padding: 1rem;
   justify-content: center;
 }
 
 .content-bars {
   gap: 1rem;
-  width: 100%;
-  max-width: 880px;
-  padding: 0 0.5rem;
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  padding: 0.5rem;
 }
 
 .bars {
-  width: 100%;
-  max-width: 880px;
-  height: 100%;
+  margin-bottom: 1rem;
+  justify-content: center;
+  width: 1080px;
+  max-width: 100%;
+  border-radius: 12px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .title {
   width: 100%;
   max-width: 450px;
-  height: 40px;
-  font-family: poppins;
-  color: #8d8fee;
+  font-family: playfair display;
+  font-size: clamp(1rem, 1.5rem, 1.8rem);
 }
 
 .content-targets {
-  width: 100%;
+  width: 1050px;
+  margin: 0 auto;
   display: flex;
-  max-width: 850px;
+  max-width: 100%;
 }
 
 .targets-scroll {
-  width: 650px;
+  max-width: 100%;
+  width: 1080px;
+  margin-top: 2rem;
   height: 350px;
   display: flex;
+  justify-content: space-around;
   overflow-x: auto;
 }
 
 .targets-scroll::-webkit-scrollbar {
-  max-width: 240px;
   background: #f7f7f777;
 }
-
-
 
 .targets-scroll::-webkit-scrollbar-button {
   width: 20px;
   height: 25px;
-  display: none;
+  background: #8d8fee;
 }
 
-.targets-scroll::-webkit-scrollbar-thumb{
+.targets-scroll::-webkit-scrollbar-thumb {
+  background: #8d8fee;
   width: 40px;
   height: 40px;
-   background-image: url("https://img.icons8.com/nolan/64/horizontal-line.png");
+  /* background-image: url("https://img.icons8.com/nolan/64/horizontal-line.png");*/
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -66,24 +80,142 @@
 
 .target {
   width: 360px;
-  margin: 0 10px;
-  border-radius: 4px;
-  height: 320px;
-  flex-shrink: 0;
+  max-width: 100%;
   display: flex;
+  margin: 10px;
+  border-radius: 4px;
+  height: 300px;
+  max-height: 100%;
+  flex-shrink: 0;
   background: #f7f7f777;
   justify-content: center;
 }
 
-
-
 .aside {
-  padding: 1rem;
-  width: 750px;
-  max-width: 100%;
+  max-width: 450px;
   margin: 0 auto;
-  height: 350px;
-  max-height: 100%;
+  padding-top: 0.5rem;
   background: #4e4e4e3a;
+  justify-content: center;
 
+}
+
+.title-aside {
+  width: 100%;
+  max-width: 450px;
+  margin-top: 1rem;
+  margin-left: .5rem;
+  font-family: playfair display;
+  font-size: clamp(1rem, 1.5rem, 1.8rem);
+}
+
+.content-circles {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.circle {
+
+  margin: 20px;
+}
+
+.circle h3{
+  text-align: start;
+  font-size: clamp(.9rem,1rem,1.1rem);
+  margin-bottom: 1rem;
+}
+
+
+/*-------------------------------*/
+.container {
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.chartContainer {
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.chartContainer:hover {
+  transform: scale(1.02);
+}
+
+.summary {
+  text-align: center;
+  margin-top: 1.5rem;
+  border-top: 2px solid #e9ecef;
+  
+}
+
+.summary p {
+  color: #495057;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+
+    
+
+  .container {
+    padding: 1rem;
+  }
+
+  .infoHeader h2 {
+    font-size: 1.5rem;
+  }
+
+  .chartContainer {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 1450px) {
+  .aside {
+    max-width: 950px;
+
+    width: 100%;
+    order: 2;
+  }
+  .content-circles {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding: 10px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .renders {
+    flex-wrap: wrap;
+  }
+
+  .circle{
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 850px) {
+  .renders {
+    flex-wrap: wrap;
+  }
+  .content-circles {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-circles {
+    grid-template-columns: 1fr;
+  }
 }

@@ -2,7 +2,7 @@ import styles from "../../styles/landing/prefooter.module.css";
 import { preferenceStore } from "../../utils/storage/preferences/preferenceStore.jsx";
 
 const texto = {
-  title1: "¿Por qué funciona Economic School Manager?",
+  title1: "¿Por qué funciona FinEd?",
   img: "https://img.icons8.com/emoji/60/bullseye.png",
   title2: "Aprendizaje Dinámico y Personalizado:",
   descript1:

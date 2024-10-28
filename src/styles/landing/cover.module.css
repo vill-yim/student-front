@@ -4,6 +4,7 @@
   max-height: 100%;
   max-width: 1800px;
   display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
   position: relative;
   gap: 1rem;

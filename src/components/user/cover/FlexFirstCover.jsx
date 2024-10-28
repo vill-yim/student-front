@@ -1,6 +1,9 @@
 import styles from "../../../styles/user/firtscover.module.css";
+import { preferenceStore } from "../../../utils/storage/preferences/preferenceStore";
 
 const Targets = ({ nombre, credit, src }) => {
+  const { theme } = preferenceStore();
+
   return (
     <div className={styles["target"]}>
       <div
@@ -10,13 +13,20 @@ const Targets = ({ nombre, credit, src }) => {
         }}
       >
         <div className={styles["target-descrip"]}>
-          <div style={{ height: "25px", color: "#fff6ff" }}>{nombre}</div>
+          <div
+            style={{ height: "25px", color: theme ? "#f7f7f7" : " #4e4e4e" }}
+          >
+            <b style={{ background: theme ? " #4e4e4e" : "#f7f7f7" }}>
+              {" "}
+              {nombre}
+            </b>
+          </div>
           <div>
             <img
               src="https://img.icons8.com/color/12/cheap-2--v1.png"
               alt="cheap-2--v1"
             />{" "}
-            <b>{credit}</b>
+            <b style={{background: theme ? " #4e4e4e" : "#f7f7f7", color: theme ? "#f7f7f7" : " #4e4e4e" }}>{credit}</b>
           </div>
         </div>
       </div>
@@ -25,11 +35,15 @@ const Targets = ({ nombre, credit, src }) => {
 };
 
 export const FlexFirstCover = () => {
+  const { theme } = preferenceStore();
+
   return (
     <div className={styles["content-section"]}>
       <div className={styles["l-section"]}>
         <div className={styles["l-up-div"]}>
-          <h3>actividades sociales</h3>
+          <h3 style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
+            actividades sociales
+          </h3>
 
           <div className={styles["evento-flex"]}>
             <div className={styles["carrusel"]}>
@@ -42,7 +56,7 @@ export const FlexFirstCover = () => {
             </div>
 
             <div className={styles["descrip-evento"]}>
-              <p>
+              <p >
                 <span>
                   Haz parte de las mejores reuniones sociales & no te pierdas
                   niguna de sus emocionantes reuniones.
@@ -54,7 +68,7 @@ export const FlexFirstCover = () => {
           </div>
         </div>
         <div className={styles["l-down-div"]}>
-          <p>
+          <p style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
             Personaliza tu app de acuerdo a tus preferencias y encuentra en lo
             que mas destacas
           </p>
@@ -79,8 +93,14 @@ export const FlexFirstCover = () => {
       <div className={styles["r-section"]}>
         <div className={styles["r-up-div"]}>
           <div className={styles["title-rec"]}>
-           
-            <h3>Los mas reconocidos</h3>{" "}
+            <h3
+              style={{
+                fontSize: ".9rem",
+                color: theme ? "#f7f7f7" : " #4e4e4e",
+              }}
+            >
+              Los mas reconocidos
+            </h3>{" "}
           </div>
 
           <div className={styles["targets-content"]}>
@@ -140,7 +160,7 @@ export const FlexFirstCover = () => {
         </div>
         <div className={styles["r-down-div"]}>
           <div className={styles["r-gift"]}>
-            <p>
+            <p style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
               Obten regalos, descuentos y premios por tus logros!!!
               <br />
               Recuerda que mientras mas creditos tengas mmejores cosas te

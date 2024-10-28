@@ -3,112 +3,40 @@ import {
   VictoryPie,
   VictoryLabel,
   VictoryAnimation,
+  VictoryTheme,
   VictoryAxis,
   VictoryChart,
   VictorySharedEvents,
 } from "victory";
+import { useUserStorage } from "../../../utils/storage/login/useUserStorage";
+import { preferenceStore } from "../../../utils/storage/preferences/preferenceStore";
 
 import style from "../../../styles/user/coverUser.module.css";
 import { useState } from "react";
 
-const RenderBars = ({ children }) => {
+const RenderBars = ({ children, state }) => {
   return (
     <div className={style["content-targets"]}>
-     
-      <div className={style["target"]}> {children}</div>
+      <div
+        style={{ background: state ? " #4e4e4e3a" : " #4e4e4e3a" }}
+        className={style["target"]}
+      >
+        {" "}
+        {children}
+      </div>
     </div>
   );
 };
 
-const RenderCover = () => {
-  const [observation, setObservation] = useState(null);
+const AnualCover = ({ state }) => {
+  const student = useUserStorage((state) => state.res);
 
-  const Victory = (
-    <VictoryBar
-      data={[
-        { x: 1, y: 2, label: "Mat" },
-        { x: 2, y: 4, label: "Bio" },
-        { x: 3, y: 7, label: "Cie" },
-        { x: 4, y: 3, label: "Esp" },
-        { x: 5, y: 5, label: "Inf" },
-        { x: 6, y: 4, label: "Ing" },
-      ]}
-      events={[
-        {
-          target: "data",
-          eventHandlers: {
-            onClick: (state) => {
-              return [
-                {
-                  target: "labels",
-                  mutation: (props) => {
-                    return props.text === "clicked"
-                      ? null
-                      : (() => {
-                          console.log(state);
-                          console.log(state.data);
-                          console.log(props);
-                          const { data } = props;
-                          console.log(data);
-                        })();
-                  },
-                },
-              ];
-            },
-          },
-        },
-      ]}
-    />
-  );
-
-  const Victory2 = (
-    <VictoryChart domainPadding={{ x: 40 }}>
-      <VictorySharedEvents
-        events={[
-          {
-            childName: ["bar", "otherbar"],
-            target: "",
-            eventHandlers: {
-              onClick: () => {
-                return [
-                  {
-                    childName: ["bar", "otherbar"],
-                  },
-                ];
-              },
-            },
-          },
-        ]}
-      />
-
-      <VictoryBar
-        data={[
-          { experiment: "Ing", expected: 100, actual: 8 },
-          { experiment: "Mat", expected: 100, actual: 5 },
-          { experiment: "Soc", expected: 100, actual: 7 },
-          { experiment: "Esp", expected: 100, actual: 8 },
-        ]}
-        x="experiment"
-        y={(d) => (d.actual / d.expected) * 100}
-      />
-      <VictoryAxis
-        label="experiment"
-        style={{
-          axisLabel: { padding: 30 },
-        }}
-      />
-      <VictoryAxis
-        dependentAxis
-        label="percent yield"
-        style={{
-          axisLabel: { padding: 40 },
-        }}
-      />
-    </VictoryChart>
-  );
+  if (!student || !student.grades) {
+    return null;
+  }
 
   const Victory3 = (
-    <svg viewBox="0 0 450 350">
+    <svg viewBox="0 0 610 420">
       <VictorySharedEvents
         events={[
           {
@@ -122,7 +50,7 @@ const RenderCover = () => {
                     mutation: (props) => {
                       return {
                         style: Object.assign({}, props.style, {
-                          fill: "tomato",
+                          fill: "#FF6B6B",
                         }),
                       };
                     },
@@ -143,37 +71,53 @@ const RenderCover = () => {
           },
         ]}
       >
-        <g transform={"translate(220, 70)"}>
+        <g transform={"translate(310, 30)"}>
           <VictoryBar
             name="bar"
             width={300}
             standalone={false}
             style={{
-              data: { width: 20 },
-              labels: { fontSize: 25 },
+              data: { width: 20, fill: "#4C6EF5" },
+              labels: { fontSize: 16, fill: state ? "#ffffff" : "#333" },
             }}
-            data={[
-              { x: "Mátematicas", y: 6 },
-              { x: "Inglés", y: 8 },
-              { x: "Español", y: 9 },
-              { x: "Artes", y: 7 },
-            ]}
-            labels={["Mat", "In", "Es", "Art"]}
+            data={student.grades.map((grade) => ({
+              x: grade.subject,
+              y: grade.final,
+            }))}
+            labels={student.grades.map((grade) =>
+              grade.subject.substring(0, 3)
+            )}
             labelComponent={<VictoryLabel y={290} />}
           />
         </g>
-        <g transform={"translate(0, -75)"}>
+
+        <g transform={"translate(15, -50)"}>
           <VictoryPie
             name="pie"
             width={250}
             standalone={false}
-            style={{ labels: { fontSize: 15, padding: 20 } }}
-            data={[
-              { x: "Mátematicas", y: 6 },
-              { x: "Inglés", y: 8 },
-              { x: "Español", y: 9 },
-              { x: "Artes", y: 7 },
-            ]}
+            style={{
+              data: {
+                fill: ({ datum }) => {
+                  return datum.y > 4.5
+                    ? "#40C057"
+                    : datum.y > 4.0
+                    ? "#4C6EF5"
+                    : datum.y > 3.5
+                    ? "#FCC419"
+                    : "#FF6B6B";
+                },
+              },
+              labels: {
+                fontSize: 12,
+                fill: state ? "#ffffff" : "#333",
+                padding: 10,
+              },
+            }}
+            data={student.grades.map((grade) => ({
+              x: grade.subject,
+              y: grade.final,
+            }))}
           />
         </g>
       </VictorySharedEvents>
@@ -181,22 +125,130 @@ const RenderCover = () => {
   );
 
   return (
+    <div
+      style={{ Background: state ? "#f7f7f777" : "#f8f9fa" }}
+      className={style.container}
+    >
+      <div className={style.chartContainer}>{Victory3}</div>
+      <div className={style.summary}>
+        <p
+          style={{
+            color: state ? "#ffffff" : "#333",
+          }}
+        >
+          Promedio general:
+          {(
+            student.grades.reduce((acc, curr) => acc + curr.final, 0) /
+            student.grades.length
+          ).toFixed(2)}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const RenderCover = () => {
+  const [observation, setObservation] = useState(null);
+
+
+const PeriodChart = ({ periodIndex, grades, state }) => {
+  const data = grades.map((subject) => ({
+    subject: subject.subject.substring(0, 3),
+    grade: subject.grades[periodIndex],
+  }));
+
+  const average = (
+    data.reduce((acc, curr) => acc + curr.grade, 0) / data.length
+  ).toFixed(2);
+
+  return (
+    <div key={periodIndex}>
+      <h3
+        className={`text-xl font-bold mb-2 ${
+          state ? "text-white" : "text-gray-800"
+        }`}
+      >
+        Periodo {periodIndex + 1} - Promedio: {average}
+      </h3>
+      <VictoryChart
+        theme={VictoryTheme.material}
+        domainPadding={20}
+        width={300}
+        height={280}
+        style={{
+          parent: {
+            background: "transparent",
+          },
+        }}
+      >
+        <VictoryAxis
+          tickFormat={(t) => t}
+          style={{
+            tickLabels: { fill: state ? "#fff" : "#333", fontSize: 12 },
+          }}
+        />
+        <VictoryAxis
+          dependentAxis
+          tickFormat={(t) => t}
+          style={{
+            tickLabels: { fill: state ? "#fff" : "#333", fontSize: 12 },
+          }}
+        />
+        <VictoryBar
+          data={data}
+          x="subject"
+          y="grade"
+          style={{
+            data: {
+              fill: ({ datum }) =>
+                datum.grade >= 4.5
+                  ? "#4CAF50"
+                  : datum.grade >= 3.5
+                  ? "#2196F3"
+                  : "#F44336",
+            },
+          }}
+          labels={({ datum }) => datum.grade.toFixed(1)}
+          labelComponent={
+            <VictoryLabel style={{ fill: state ? "#fff" : "#333" }} />
+          }
+        />
+      </VictoryChart>
+    </div>
+  );
+};
+
+
+
+  const { theme } = preferenceStore();
+  const { res } =useUserStorage();
+
+  return (
     <div className={style["content-bars"]}>
       <div className={style["bars"]}>
-        <div className={style["title"]}>
+        <div
+          style={{ color: theme ? " #f7f7f7" : " #4e4e4e" }}
+          className={style["title"]}
+        >
+          <h3>Promedio General</h3>
+        </div>
+
+        <AnualCover state={theme} />
+      </div>
+
+      <div className={style["bars"]}>
+        <div
+          style={{ color: theme ? " #f7f7f7" : " #4e4e4e" }}
+          className={style["title"]}
+        >
           <h3>Promedio por Materias</h3>
         </div>
 
         <div className={style["content-targets"]}>
           <div className={style["targets-scroll"]}>
-            <RenderBars children={Victory3} />
-            <RenderBars children={Victory2} />
-            <RenderBars children={Victory} />
-            <RenderBars children={Victory} />
-            <RenderBars children={Victory} />
-            <RenderBars children={Victory} />
-            <RenderBars children={Victory} />
-            <RenderBars children={Victory} />
+            <PeriodChart periodIndex={0} grades={res.grades} state={theme} />
+            <PeriodChart periodIndex={1} grades={res.grades} state={theme} />
+            <PeriodChart periodIndex={2} grades={res.grades} state={theme} />
           </div>
         </div>
       </div>
@@ -205,61 +257,56 @@ const RenderCover = () => {
 };
 
 const RenderAsideCover = () => {
+  const { theme } = preferenceStore();
 
- const grades = [
-   {
-     subject: "Ciencias sociales",
-     final: 4.4,
-     color: "#FF6B6B",
-   },
-   {
-     subject: "Lengua castellana",
-     final: 4.8,
-     color: "#4ECDC4",
-   },
-   {
-     subject: "Matematicas",
-     final: 3.8,
-     color: "#45B7D1",
-   },
- ];
+  const grades = [
+    {
+      subject: "Ciencias sociales",
+      final: 4.4,
+      color: " #40DC64",
+    },
+    {
+      subject: "Lengua castellana",
+      final: 4.8,
+      color: "#00FF64",
+    },
+    {
+      subject: "Matematicas",
+      final: 3.8,
+      color: "#FCC419",
+    },
+  ];
 
   return (
     <div className={style["aside"]}>
-      <div className={style["title-aside"]}>title</div>
-
       <div
         style={{
-          width: "600px",
+          textAlign: "start",
+          color: theme ? "#ffffff" : "#333",
+        }}
+        className={style["title-aside"]}
+      >
+        Tus materias
+      </div>
+
+      <div
+        className={style["content-circles"]}
+        style={{
+          width: "100%",
           maxWidth: "100%",
-          padding: "20px",
-          display: "flex",
-          justifyContent: "space-around",
-          flexWrap: "wrap",
-          gap: "20px",
+          justifyContent: "center",
         }}
       >
         {grades.map((grade, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <h3
-              style={{
-                margin: "0 0 15px 0",
-                fontSize: "18px",
-              }}
-            >
+          <div className={style["circle"]} key={index}>
+            <h3 style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
               {grade.subject}
             </h3>
 
             <div
               style={{
                 width: "150px",
+                margin: "5px",
                 height: "150px",
                 position: "relative",
               }}
@@ -275,7 +322,6 @@ const RenderAsideCover = () => {
               )`,
                 }}
               />
-
               <div
                 style={{
                   position: "absolute",
@@ -284,7 +330,7 @@ const RenderAsideCover = () => {
                   transform: "translate(-50%, -50%)",
                   width: "120px",
                   height: "120px",
-                  background: "white",
+                  background: theme ? " #4e4e4e" : "#f7f7f7",
                   borderRadius: "50%",
                   display: "flex",
                   alignItems: "center",
@@ -298,7 +344,9 @@ const RenderAsideCover = () => {
                     color: grade.color,
                   }}
                 >
-                  {grade.final}
+                  <b style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
+                    {grade.final}
+                  </b>
                 </span>
               </div>
             </div>
@@ -306,8 +354,9 @@ const RenderAsideCover = () => {
             <p
               style={{
                 margin: "15px 0 0 0",
+                color: theme ? "#f7f7f7" : " #4e4e4e",
+                textAlign: "end",
                 fontSize: "14px",
-                color: "#666",
               }}
             >
               {((grade.final / 5) * 100).toFixed(1)}%
@@ -319,13 +368,11 @@ const RenderAsideCover = () => {
   );
 };
 
-const CoverUser = () => {
+export const CoverUser = () => {
   return (
     <div className={style["renders"]}>
-      <RenderAsideCover />
       <RenderCover />
+      <RenderAsideCover />
     </div>
   );
 };
-
-export default CoverUser;

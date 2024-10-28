@@ -140,6 +140,7 @@ export const Chat = () => {
       </div>
       <div className={style.inputContainer}>
         <input
+          required
           className={style.input}
           value={input}
           onChange={(e) => setInput(e.target.value)}

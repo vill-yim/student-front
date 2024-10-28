@@ -1,7 +1,8 @@
 .all-container{
   width:1250px;
-  max-width: 100%;
+  max-width: 100%;;
   justify-content: center;
+
 }
 
 .container {
@@ -42,25 +43,24 @@
 }
 
 .gradesSection {
-  padding: 2rem;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);;
 }
 
 .gradesSection h2 {
   color: #2c3e50;
-  margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .chartWrapper {
   display: flex;
-  height: 600px;
+  flex-wrap: wrap;
   max-height: 100%;
-  margin: 2rem 0;
   max-width: 100%;
   border-radius: 8px;
-  padding: 1rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
@@ -324,6 +324,9 @@
   font-weight: bold;
   font-size: 1.1rem;
 }
+.finaly{
+  color:#2c3e50;
+}
 
 .finalGradeValue {
   font-size: 1.2rem;
@@ -353,6 +356,10 @@
 @media (max-width: 768px) {
   .cardGrid {
     grid-template-columns: 1fr;
+  }
+
+  .chartWrapper{
+    display: block;
   }
   
   .circleChartContainer {

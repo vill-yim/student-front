@@ -2,9 +2,9 @@ export const mockDatabase = {
   students: [
     {
       documentType: "TI",
-      name: "Martin Cardenas",
-      last_name:"lastname ",
-      profile_img:"https://i.ibb.co/wr9J45j/std9.jpg",
+      name: "Martin ",
+      last_name: "Cardenas ",
+      profile_img: "https://i.ibb.co/wr9J45j/std9.jpg",
       number_identify: "12345678",
       password: "1234",
       dateOfBirth: "9/21/2009",

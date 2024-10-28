@@ -1,5 +1,6 @@
 import style from "../../styles/landing/landing.module.css";
 import { Cover } from "./Cover";
+import { Services } from "./Services";
 import { PreFooter } from "./Prefooter";
 import { SecondSection } from "./SecondSection";
 
@@ -11,12 +12,20 @@ export const Landing = () => {
         <Cover />
       </div>
 
+
+    <div className={style["content-service"]}>
+      <Services/>
+    </div>
+
       <div className={style["second-section"]}>
         <SecondSection />
       </div>
       <div className={style["prefooter"]}>
         <PreFooter />
       </div>
+
+
+
     </div>
   );
 };

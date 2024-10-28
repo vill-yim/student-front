@@ -16,6 +16,15 @@
   position: relative;
   justify-content: center;
 }
+
+
+.content-service{
+  width: 100%;
+  display: flex;
+  max-width: 1800px;
+}
+
+
 .second-section {
   width: 100%;
   display: flex;
@@ -28,7 +37,6 @@
   max-width: 1800px;
   background: fixed;
 }
-
 
 
 

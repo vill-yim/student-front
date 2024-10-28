@@ -118,6 +118,7 @@
   display: flex;
   overflow: hidden;
   margin-top: 3px;
+  backdrop-filter: blur(3px) brightness(0.66);
 }
 
 .l-down-div p {

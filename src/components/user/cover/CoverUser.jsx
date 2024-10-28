@@ -14,20 +14,6 @@ import { preferenceStore } from "../../../utils/storage/preferences/preferenceSt
 import style from "../../../styles/user/coverUser.module.css";
 import { useState } from "react";
 
-const RenderBars = ({ children, state }) => {
-  return (
-    <div className={style["content-targets"]}>
-      <div
-        style={{ background: state ? " #4e4e4e3a" : " #4e4e4e3a" }}
-        className={style["target"]}
-      >
-        {" "}
-        {children}
-      </div>
-    </div>
-  );
-};
-
 const AnualCover = ({ state }) => {
   const student = useUserStorage((state) => state.res);
 
@@ -150,78 +136,78 @@ const AnualCover = ({ state }) => {
 const RenderCover = () => {
   const [observation, setObservation] = useState(null);
 
+  const PeriodChart = ({ periodIndex, grades, state }) => {
+    const data = grades.map((subject) => ({
+      subject: subject.subject.substring(0, 3),
+      grade: subject.grades[periodIndex],
+    }));
 
-const PeriodChart = ({ periodIndex, grades, state }) => {
-  const data = grades.map((subject) => ({
-    subject: subject.subject.substring(0, 3),
-    grade: subject.grades[periodIndex],
-  }));
+    const average = (
+      data.reduce((acc, curr) => acc + curr.grade, 0) / data.length
+    ).toFixed(2);
 
-  const average = (
-    data.reduce((acc, curr) => acc + curr.grade, 0) / data.length
-  ).toFixed(2);
-
-  return (
-    <div key={periodIndex}>
-      <h3
-        className={`text-xl font-bold mb-2 ${
-          state ? "text-white" : "text-gray-800"
-        }`}
+    return (
+      <div
+        className={style["target"]}
+        key={periodIndex}
+       
       >
-        Periodo {periodIndex + 1} - Promedio: {average}
-      </h3>
-      <VictoryChart
-        theme={VictoryTheme.material}
-        domainPadding={20}
-        width={300}
-        height={280}
-        style={{
-          parent: {
-            background: "transparent",
-          },
-        }}
-      >
-        <VictoryAxis
-          tickFormat={(t) => t}
+        <h3
+          style={{ color: state ? "#f7f7f7" : " #4e4e4e" }}
+          className={`text-xl font-bold mb-2 ${
+            state ? "text-white" : "text-gray-800"
+          }`}
+        >
+          Periodo {periodIndex + 1} - Promedio: {average}
+        </h3>
+        <VictoryChart
+          theme={VictoryTheme.material}
+          domainPadding={20}
           style={{
-            tickLabels: { fill: state ? "#fff" : "#333", fontSize: 12 },
-          }}
-        />
-        <VictoryAxis
-          dependentAxis
-          tickFormat={(t) => t}
-          style={{
-            tickLabels: { fill: state ? "#fff" : "#333", fontSize: 12 },
-          }}
-        />
-        <VictoryBar
-          data={data}
-          x="subject"
-          y="grade"
-          style={{
-            data: {
-              fill: ({ datum }) =>
-                datum.grade >= 4.5
-                  ? "#4CAF50"
-                  : datum.grade >= 3.5
-                  ? "#2196F3"
-                  : "#F44336",
+            parent: {
+              background: "transparent",
             },
           }}
-          labels={({ datum }) => datum.grade.toFixed(1)}
-          labelComponent={
-            <VictoryLabel style={{ fill: state ? "#fff" : "#333" }} />
-          }
-        />
-      </VictoryChart>
-    </div>
-  );
-};
-
-
+        >
+          <VictoryAxis
+            tickFormat={(t) => t}
+            style={{
+              tickLabels: { fill: state ? "#fff" : "#333", fontSize: 12 },
+            }}
+          />
+          <VictoryAxis
+            dependentAxis
+            tickFormat={(t) => t}
+            style={{
+              tickLabels: { fill: state ? "#fff" : "#333", fontSize: 12 },
+            }}
+          />
+          <VictoryBar
+            data={data}
+            x="subject"
+            y="grade"
+            style={{
+              data: {
+                fill: ({ datum }) =>
+                  datum.grade >= 4.5
+                    ? "#4CAF50"
+                    : datum.grade >= 3.5
+                    ? "#2196F3"
+                    : "#F44336",
+              },
+            }}
+            labels={({ datum }) => datum.grade.toFixed(1)}
+            labelComponent={
+              <VictoryLabel style={{ fill: state ? "#fff" : "#333" }} />
+            }
+          />
+        </VictoryChart>
+      </div>
+    );
+  };
 
   const { theme } = preferenceStore();
-  const { res } =useUserStorage();
+  const { res } = useUserStorage();
 
   return (
     <div className={style["content-bars"]}>
@@ -237,11 +223,10 @@ const PeriodChart = ({ periodIndex, grades, state }) => {
       </div>
 
       <div className={style["bars"]}>
-        <div
-          style={{ color: theme ? " #f7f7f7" : " #4e4e4e" }}
-          className={style["title"]}
-        >
-          <h3>Promedio por Materias</h3>
+        <div className={style["title"]}>
+          <h3 style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
+            Promedio por Materias
+          </h3>
         </div>
 
         <div className={style["content-targets"]}>

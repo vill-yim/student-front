@@ -77,7 +77,7 @@ const AnualCover = ({ state }) => {
           />
         </g>
 
-        <g transform={"translate(15, -50)"}>
+        <g transform={"translate(45, -50)"}>
           <VictoryPie
             name="pie"
             width={250}
@@ -248,7 +248,7 @@ const RenderAsideCover = () => {
     {
       subject: "Ciencias sociales",
       final: 4.4,
-      color: " #40DC64",
+      color: "#40DC64",
     },
     {
       subject: "Lengua castellana",

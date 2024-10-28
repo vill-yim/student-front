@@ -122,7 +122,6 @@ const CalendarComponent = () => {
 
   const onChange = (newDate) => {
     setDate(newDate);
-    console.log("Día seleccionado es", newDate);
   };
 
   return (

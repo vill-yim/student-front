@@ -122,7 +122,7 @@ const AnualCover = ({ state }) => {
             color: state ? "#ffffff" : "#333",
           }}
         >
-          Promedio general:
+          Caificacion final:
           {(
             student.grades.reduce((acc, curr) => acc + curr.final, 0) /
             student.grades.length
@@ -222,7 +222,7 @@ const RenderCover = () => {
         <AnualCover state={theme} />
       </div>
 
-      <div className={style["bars"]}>
+      <div className={style["bars2"]}>
         <div className={style["title"]}>
           <h3 style={{ color: theme ? "#f7f7f7" : " #4e4e4e" }}>
             Promedio por Materias

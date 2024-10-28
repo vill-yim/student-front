@@ -30,7 +30,7 @@ export const BigDataAnalysis = () => (
   <div className={styles.serviceCard}>
     <div className={`${styles.cardContent} ${styles.bigData}`}>
       <img
-        src="../../../public/studiantes/2.svg"
+        src="https://i.ibb.co/CJRMBRD/service2.png"
         alt="Análisis Big Data"
         className={styles.serviceImage}
       />
@@ -40,7 +40,7 @@ export const BigDataAnalysis = () => (
         <div className={styles.dataPoint}></div>
       </div>
       <h3 style={{ color: "#2d3748" }}>Análisis Personalizado con Big Data</h3>
-      <p style={{ color:  "#f7fafc"}}>
+      <p style={{ color: "#f7fafc" }}>
         Análisis del progreso de cada estudiante mediante el uso de Big Data,
         con informes detallados para los docentes.
       </p>
@@ -53,15 +53,17 @@ export const FinancialCompetitions = () => (
   <div className={styles.serviceCard}>
     <div className={`${styles.cardContent} ${styles.competitions}`}>
       <img
-        src="../../../public/studiantes/3.svg"
+        src="https://i.ibb.co/LpFfk3j/nots.jpg"
         alt="Competencias Financieras"
         className={styles.serviceImage}
       />
       <div className={styles.trophies}>
         <div className={styles.trophy}></div>
       </div>
-      <h3 style={{ color: "#2d3748"  }}>Competencias y Campeonatos Financieros</h3>
-      <p  style={{ color:"#f7fafc" }}>
+      <h3 style={{ color: "#2d3748" }}>
+        Competencias y Campeonatos Financieros
+      </h3>
+      <p style={{ color: "#f7fafc" }}>
         Organización de competencias a nivel institucional, local, regional y
         nacional para incentivar el aprendizaje.
       </p>
@@ -74,7 +76,7 @@ export const VirtualLibrary = () => (
   <div className={styles.serviceCard}>
     <div className={`${styles.cardContent} ${styles.library}`}>
       <img
-        src="../../../public/studiantes/4.svg"
+        src="https://i.ibb.co/7Y2MwQm/4.jpg"
         alt="Biblioteca Virtual"
         className={styles.serviceImage}
       />
@@ -83,8 +85,10 @@ export const VirtualLibrary = () => (
         <span></span>
         <span></span>
       </div>
-      <h3 style={{ color: "#2d3748" }}>Biblioteca Virtual de Recursos Financieros</h3>
-      <p  style={{ color: "#f7fafc" }}> 
+      <h3 style={{ color: "#2d3748" }}>
+        Biblioteca Virtual de Recursos Financieros
+      </h3>
+      <p style={{ color: "#f7fafc" }}>
         Acceso a videos, artículos y guías prácticas sobre temas financieros,
         inversión y emprendimiento.
       </p>
@@ -97,13 +101,15 @@ export const DigitalCertification = () => (
   <div className={styles.serviceCard}>
     <div className={`${styles.cardContent} ${styles.certification}`}>
       <img
-        src="../../../public/studiantes/5.svg"
+        src="https://i.ibb.co/hgMKBvp/5.jpg"
         alt="Certificación Digital"
         className={styles.serviceImage}
       />
       <div className={styles.badge}></div>
-      <h3 style={{ color: "#2d3748"  }}>Certificación Digital y Créditos Académicos</h3>
-      <p  style={{ color:"#f7fafc" }}>
+      <h3 style={{ color: "#2d3748" }}>
+        Certificación Digital y Créditos Académicos
+      </h3>
+      <p style={{ color: "#f7fafc" }}>
         Al completar los módulos y actividades, los estudiantes obtienen
         certificaciones digitales reconocidas.
       </p>

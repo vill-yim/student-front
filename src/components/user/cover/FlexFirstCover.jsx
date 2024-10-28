@@ -56,7 +56,7 @@ export const FlexFirstCover = () => {
             </div>
 
             <div className={styles["descrip-evento"]}>
-              <p >
+              <p>
                 <span>
                   Haz parte de las mejores reuniones sociales & no te pierdas
                   niguna de sus emocionantes reuniones.
@@ -172,7 +172,7 @@ export const FlexFirstCover = () => {
             <div
               className={styles["img-bksh"]}
               style={{
-                backgroundImage: "url('../../../public/pages/schoolbk.jpeg')",
+                backgroundImage: "url('https://i.ibb.co/njCR9gM/schoolbk.jpg')",
               }}
             />
           </div>
